@@ -11,5 +11,6 @@ Chức năng: của app
  Lưu ý:
  Sử dụng Fragment tạo thư mục để lưu
  Sử dụng Adapter để custom lại thì tạo một thư mục để lưu
+ Viết xong nhớ để comment.
  
  
