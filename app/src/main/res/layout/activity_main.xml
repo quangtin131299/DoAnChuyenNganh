@@ -28,7 +28,4 @@
         android:layout_width="18dp"
         android:layout_height="18dp"/>
 
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
