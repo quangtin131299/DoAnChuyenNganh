@@ -18,9 +18,8 @@
         android:layout_weight="6.3">
 
         <TextView
-            android:gravity="center"
             android:textStyle="bold"
-            android:textSize="100sp"
+            android:textSize="80sp"
             android:textColor="#E7E7E7"
             android:text="Sign in"
             android:layout_width="match_parent"
