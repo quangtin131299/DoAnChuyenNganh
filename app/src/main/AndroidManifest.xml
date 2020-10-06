@@ -12,8 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:windowSoftInputMode="adjustResize" android:name=".Activity.LoginActivity"></activity>
+        <activity android:name=".Activity.CreateAccountActivity"  android:screenOrientation="locked"></activity>
+        <activity android:name=".Activity.LoginActivity"  android:screenOrientation="locked" />
         <activity android:name=".Activity.HomeActivity" />
         <activity
             android:name=".Activity.SplashActivity"
