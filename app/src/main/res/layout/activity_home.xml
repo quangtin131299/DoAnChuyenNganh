@@ -4,45 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackround"
     android:layout_weight="10"
+    android:background="@color/colorBackround"
     android:orientation="vertical"
     tools:context=".Activity.HomeActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
-
-        <com.google.android.material.tabs.TabLayout
-            app:tabIndicator="@android:color/holo_blue_light"
-            app:tabTextColor="@android:color/white"
-            app:tabSelectedTextColor="@android:color/white"
-            app:tabIndicatorColor="#FFFFFF"
-            android:background="@color/colorBackround"
-            android:id="@+id/tablayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"></com.google.android.material.tabs.TabLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="7"
+        android:layout_weight="9"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <androidx.viewpager.widget.ViewPager
-            android:id="@+id/viewpager"
+            android:id="@+id/viewpagerhome"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -57,12 +32,13 @@
         android:orientation="horizontal">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
-            app:itemTextColor="@color/color_botomnavigation"
+            android:id="@+id/bottomnavigationhome"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:background="@color/colorBackround"
             app:itemIconTint="@color/color_botomnavigation"
-            app:menu="@menu/menu_bottomnavigation"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            app:itemTextColor="@color/color_botomnavigation"
+            app:menu="@menu/menu_bottomnavigation" />
 
     </LinearLayout>
 

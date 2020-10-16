@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="10"
+    android:padding="10dp"
+    android:background="@color/colorBackround"
+    android:orientation="vertical">
+
+    
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="@drawable/background_detailsticker"
+        android:layout_weight="2"
+        android:padding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <LinearLayout
+            android:weightSum="10"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:src="@mipmap/ic_launcher_round"
+                android:layout_weight="3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+
+            <LinearLayout
+                android:paddingLeft="5dp"
+                android:orientation="vertical"
+                android:layout_weight="7"
+                android:layout_width="0dp"
+                android:gravity="center_vertical"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:textSize="20sp"
+                    android:textColor="#E7E7E7"
+                    android:text="Scan QR code at the entrance of the cinema hall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:textColor="#E7E7E7"
+                    android:text="Booking ID: 4764539"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_weight="0.5"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"/>
+    <LinearLayout
+        android:padding="10dp"
+        android:weightSum="10"
+        android:orientation="vertical"
+        android:background="@drawable/background_detailsticker"
+        android:layout_weight="7.5"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+
+
+        <LinearLayout
+            android:weightSum="10"
+            android:orientation="horizontal"
+            android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <ImageView
+                android:src="@mipmap/ic_launcher_round"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_weight="8"
+                android:layout_width="0dp"
+                android:gravity="center_vertical"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_marginLeft="5dp"
+                    android:textSize="30sp"
+                    android:textColor="#E7E7E7"
+                    android:text="Wonder Woman 1984"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:textColor="#707070"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="12sp"
+                    android:text="Wonder Woman 1984"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:weightSum="10"
+            android:layout_weight="0.5"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <TextView
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+
+            <ImageView
+                android:layout_weight="8"
+                android:scaleType="fitCenter"
+                android:src="@drawable/devider_ngang"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+        <LinearLayout
+            android:weightSum="10"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <ImageView
+                android:scaleType="center"
+                android:src="@drawable/date"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_weight="8"
+                android:layout_width="0dp"
+                android:gravity="center_vertical"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_marginLeft="5dp"
+                    android:textSize="30sp"
+                    android:textColor="#E7E7E7"
+                    android:text="Wonder Woman 1984"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:textColor="#707070"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="12sp"
+                    android:text="Wonder Woman 1984"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:weightSum="10"
+            android:layout_weight="0.5"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <TextView
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+
+            <ImageView
+                android:layout_weight="8"
+                android:scaleType="fitCenter"
+                android:src="@drawable/devider_ngang"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:weightSum="10"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <ImageView
+                android:scaleType="center"
+                android:src="@drawable/cinema"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_weight="8"
+                android:layout_width="0dp"
+                android:gravity="center_vertical"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_marginLeft="5dp"
+                    android:textSize="30sp"
+                    android:textColor="#E7E7E7"
+                    android:text="Wonder Woman 1984"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:textColor="#707070"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="12sp"
+                    android:text="Wonder Woman 1984"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:weightSum="10"
+            android:layout_weight="0.5"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <TextView
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+
+            <ImageView
+                android:layout_weight="8"
+                android:scaleType="fitCenter"
+                android:src="@drawable/devider_ngang"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+        <LinearLayout
+            android:weightSum="10"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <ImageView
+                android:scaleType="center"
+                android:src="@drawable/seat"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_weight="8"
+                android:layout_width="0dp"
+                android:gravity="center_vertical"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_marginLeft="5dp"
+                    android:textSize="30sp"
+                    android:textColor="#E7E7E7"
+                    android:text="Wonder Woman 1984"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:textColor="#707070"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="12sp"
+                    android:text="Wonder Woman 1984"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:weightSum="10"
+            android:layout_weight="0.5"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <TextView
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+
+            <ImageView
+                android:layout_weight="8"
+                android:scaleType="fitCenter"
+                android:src="@drawable/devider_ngang"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+        <LinearLayout
+            android:weightSum="10"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <ImageView
+                android:scaleType="center"
+                android:src="@drawable/location"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_weight="8"
+                android:layout_width="0dp"
+                android:gravity="center_vertical"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_marginLeft="5dp"
+                    android:textSize="30sp"
+                    android:textColor="#E7E7E7"
+                    android:text="Wonder Woman 1984"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:textColor="#707070"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="12sp"
+                    android:text="Wonder Woman 1984"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:weightSum="10"
+            android:orientation="horizontal"
+            android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+
+        </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

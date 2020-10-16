@@ -9,21 +9,29 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appdatvexemphim.R;
 
-public class ListMovieAdapter extends RecyclerView.Adapter {
+public class ListMovieAdapter extends RecyclerView.Adapter<ListMovieAdapter.ViewHolder> {
     @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.linerecylerview_datamovienearyou, parent, false);
-        return null;
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_datamovienearyou, parent, false);
+        return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return 5;
+    }
+
+
+    public class ViewHolder extends RecyclerView.ViewHolder{
+
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+        }
     }
 }

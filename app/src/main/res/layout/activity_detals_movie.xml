@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="10"
+    android:background="@color/colorBackround"
+    tools:context=".Activity.DetalsMovieActivity">
+
+
+    <LinearLayout
+        android:layout_weight="3"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <ImageView
+            android:src="@mipmap/ic_launcher_round"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:weightSum="10"
+        android:orientation="vertical"
+        android:layout_weight="6"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <TextView
+            android:layout_weight="2"
+            android:textColor="#E7E7E7"
+            android:textSize="50sp"
+            android:text="Tên Phim"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"/>
+
+        <TextView
+            android:layout_weight="3"
+            android:textColor="#E7E7E7"
+            android:textSize="25sp"
+            android:text="Mô tả"
+            android:textAlignment="textStart"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"/>
+        <TextView
+            android:textSize="20sp"
+            android:textColor="#E7E7E7"
+            android:text="YouTuBeAPI"
+            android:layout_weight="5"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:weightSum="10"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <Button
+            android:layout_margin="5dp"
+            android:background="@drawable/background_btnhuydatve"
+            android:text="Hủy bỏ"
+            android:textColor="#FFFFFF"
+            android:layout_weight="5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:layout_margin="5dp"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/background_btnlogin"
+            android:text="Đặt vé"
+            android:layout_weight="5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

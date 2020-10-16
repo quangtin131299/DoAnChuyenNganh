@@ -4,11 +4,10 @@
     android:layout_height="match_parent">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:padding="1dp"
+        android:id="@+id/rvMovie"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-
-
     </androidx.recyclerview.widget.RecyclerView>
 
 </RelativeLayout>
