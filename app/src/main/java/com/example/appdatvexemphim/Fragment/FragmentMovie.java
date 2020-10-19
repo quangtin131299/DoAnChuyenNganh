@@ -40,13 +40,11 @@ public class FragmentMovie extends Fragment {
     private void addControls(View view) {
         tabLayout = view.findViewById(R.id.tablayout);
         viewPager = view.findViewById(R.id.viewpagermovie);
+        movieViewPagerAdapter = new MovieViewPagerAdapter(getFragmentManager());
     }
 
 
     public void prepearViewPager() {
-        movieViewPagerAdapter = new MovieViewPagerAdapter(getFragmentManager());
-
-
         FragmentNearYou fragmentNearYou = new FragmentNearYou();
         FragmentCommingSoon fragmentCommingSoon = new FragmentCommingSoon();
 

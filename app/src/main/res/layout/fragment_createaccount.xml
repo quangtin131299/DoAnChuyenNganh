@@ -5,7 +5,6 @@
     android:weightSum="10"
     android:orientation="vertical">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -17,6 +16,30 @@
 
 
         <EditText
+            android:id="@+id/txtname"
+            android:inputType="text"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:background="@drawable/background_textviewaccountandpass"
+            android:hint="Enter your Name"
+            android:paddingLeft="10dp"
+            android:textColor="#E7E7E7"
+            android:textColorHint="#707070" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.4"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp">
+
+
+        <EditText
+            android:id="@+id/txtaccount"
             android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="43dp"
@@ -40,6 +63,7 @@
 
 
         <EditText
+            android:id="@+id/txtpass"
             android:layout_width="match_parent"
             android:layout_height="43dp"
             android:background="@drawable/background_textviewaccountandpass"
@@ -62,6 +86,7 @@
 
 
         <EditText
+            android:id="@+id/txtconfimpass"
             android:layout_width="match_parent"
             android:layout_height="43dp"
             android:background="@drawable/background_textviewaccountandpass"
@@ -84,6 +109,7 @@
 
 
         <EditText
+            android:id="@+id/txtemail"
             android:inputType="textEmailAddress"
             android:layout_width="match_parent"
             android:layout_height="43dp"
@@ -106,11 +132,11 @@
 
 
         <EditText
+            android:id="@+id/txtdate"
             android:layout_width="match_parent"
             android:layout_height="43dp"
             android:background="@drawable/background_textviewaccountandpass"
             android:hint="Enter your Birthday"
-            android:inputType="date"
             android:paddingLeft="10dp"
             android:textColor="#E7E7E7"
             android:textColorHint="#707070" />
@@ -128,6 +154,7 @@
 
 
         <EditText
+            android:id="@+id/txtsdt"
             android:layout_width="match_parent"
             android:layout_height="43dp"
             android:background="@drawable/background_textviewaccountandpass"
@@ -142,65 +169,24 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1.25"
+        android:layout_weight="1.1"
         android:gravity="center"
         android:orientation="vertical"
         android:paddingLeft="8dp"
         android:paddingRight="8dp">
 
         <Button
+            android:id="@+id/btncreate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/background_btnlogin"
-            android:text="SIGN IN"
+            android:text="Create Account"
             android:textColor="#E7E7E7"
             android:textSize="20sp" />
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1.25"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:weightSum="10">
 
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="5"
-            android:gravity="right"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="New at CinemaPlus? "
-                android:textColor="#707070"
-                android:textSize="15sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="5"
-            android:orientation="horizontal">
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Create Account"
-                android:textColor="#FF3365"
-                android:textSize="15sp" />
-
-        </LinearLayout>
-
-
-    </LinearLayout>
 
 
 </LinearLayout>

@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:weightSum="10"
     android:background="@color/colorBackround"
+    android:weightSum="10"
     android:layout_height="match_parent">
 
     <LinearLayout
@@ -27,7 +27,7 @@
             android:layout_height="match_parent"
             android:layout_weight="8"
             android:gravity="center"
-            android:text="Tickers"
+            android:text="Favourite"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -40,14 +40,9 @@
         android:layout_height="0dp">
 
         <ListView
-
-            android:id="@+id/lvTicker"
+            android:id="@+id/lvmoviefavourite"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
-
     </LinearLayout>
-
-
-
 </LinearLayout>

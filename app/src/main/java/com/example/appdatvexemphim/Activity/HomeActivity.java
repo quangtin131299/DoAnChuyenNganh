@@ -1,17 +1,19 @@
 package com.example.appdatvexemphim.Activity;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.appdatvexemphim.Adapter.MainAdapter;
 import com.example.appdatvexemphim.Fragment.FragmentCinema;
-import com.example.appdatvexemphim.Fragment.FragmentCommingSoon;
-import com.example.appdatvexemphim.Fragment.FragmentDetailsTicker;
+import com.example.appdatvexemphim.Fragment.FragmentFavourite;
 import com.example.appdatvexemphim.Fragment.FragmentMovie;
 import com.example.appdatvexemphim.Fragment.FragmentTicker;
 import com.example.appdatvexemphim.R;
@@ -26,15 +28,22 @@ public class HomeActivity extends AppCompatActivity {
     ArrayList<String> arrayTilte = new ArrayList<>();
     BottomNavigationView bottomNavigationViewHome;
 
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        ReadStatusLogin();
+
         addControl();
         addEvent();
         prepearViewPager(viewPager, arrayTilte);
+    }
+
+    private void ReadStatusLogin() {
+        sharedPreferences = getSharedPreferences("datalogin", Context.MODE_PRIVATE);
     }
 
     private void addEvent() {
@@ -52,6 +61,7 @@ public class HomeActivity extends AppCompatActivity {
                         viewPager.setCurrentItem(2);
                         break;
                     case R.id.itemfavourite:
+                        viewPager.setCurrentItem(3);
                         break;
                     case R.id.itemprofile:
                         break;
@@ -64,9 +74,44 @@ public class HomeActivity extends AppCompatActivity {
 
 
     private void addControl() {
-
         viewPager = findViewById(R.id.viewpagerhome);
+        //set để lưu lại các trang
+        viewPager.setOffscreenPageLimit(4);
         bottomNavigationViewHome = findViewById(R.id.bottomnavigationhome);
+        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                switch (position) {
+                    case 0:
+                        bottomNavigationViewHome.setSelectedItemId(R.id.itemmovie);
+                        break;
+                    case 1:
+                        bottomNavigationViewHome.setSelectedItemId(R.id.itemticker);
+                        break;
+                    case 2:
+                        bottomNavigationViewHome.setSelectedItemId(R.id.itemcinema);
+                        break;
+                    case 3:
+                        bottomNavigationViewHome.setSelectedItemId(R.id.itemfavourite);
+                        break;
+                    case 4:
+                        bottomNavigationViewHome.setSelectedItemId(R.id.itemprofile);
+                        break;
+                }
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
 
     }
 
@@ -75,11 +120,13 @@ public class HomeActivity extends AppCompatActivity {
         FragmentMovie fragmentMovie = new FragmentMovie();
         FragmentTicker fragmentTicker = new FragmentTicker();
         FragmentCinema fragmentCinema = new FragmentCinema();
+        FragmentFavourite fragmentFavourite = new FragmentFavourite();
 
 
         mainAdapter.addFragment(fragmentMovie, "Movie");
         mainAdapter.addFragment(fragmentTicker, "Ticker");
         mainAdapter.addFragment(fragmentCinema, "Cinema");
+        mainAdapter.addFragment(fragmentFavourite, "Favourite");
         viewPager.setAdapter(mainAdapter);
 
     }

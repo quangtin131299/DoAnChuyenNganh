@@ -25,6 +25,4 @@ public class Cinema {
     public void setDiachi(String diachi) {
         this.diachi = diachi;
     }
-
-
 }

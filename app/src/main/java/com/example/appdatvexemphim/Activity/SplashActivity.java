@@ -17,7 +17,7 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_splash);
 
         ProgressBar progressBar = (ProgressBar)findViewById(R.id.progress);
         Sprite doubleBounce = new RotatingCircle();
@@ -42,7 +42,7 @@ public class SplashActivity extends AppCompatActivity {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    Intent i = new Intent(SplashActivity.this, HomeActivity.class);
+                    Intent i = new Intent(SplashActivity.this, LoginActivity.class);
                     startActivity(i);
                 }
             },2000);

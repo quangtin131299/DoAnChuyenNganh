@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:weightSum="10">
 
@@ -14,16 +15,26 @@
         android:paddingLeft="8dp"
         android:paddingRight="8dp">
 
-
-        <EditText
-            android:inputType="text"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edlayouttk"
             android:layout_width="match_parent"
-            android:layout_height="43dp"
-            android:background="@drawable/background_textviewaccountandpass"
-            android:hint="Enter your Email"
-            android:paddingLeft="10dp"
-            android:textColor="#E7E7E7"
-            android:textColorHint="#707070" />
+            app:hintEnabled="false"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/txttendangnhap"
+                android:inputType="text"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:background="@drawable/background_textviewaccountandpass"
+                android:hint="Enter your Email"
+                android:paddingLeft="10dp"
+                android:textColor="#E7E7E7"
+                android:textColorHint="#707070" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
 
     </LinearLayout>
 
@@ -37,16 +48,26 @@
         android:paddingRight="8dp">
 
 
-
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edlayoupass"
             android:layout_width="match_parent"
-            android:layout_height="43dp"
-            android:background="@drawable/background_textviewaccountandpass"
-            android:hint="Enter your Password"
-            android:inputType="textPassword"
-            android:paddingLeft="10dp"
-            android:textColor="#E7E7E7"
-            android:textColorHint="#707070" />
+            app:hintEnabled="false"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/txtmatkhau"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:background="@drawable/background_textviewaccountandpass"
+                android:hint="Enter your Password"
+                android:inputType="textPassword"
+                android:paddingLeft="10dp"
+                android:textColor="#E7E7E7"
+                android:textColorHint="#707070" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
 
     </LinearLayout>
 
@@ -55,15 +76,30 @@
         android:layout_height="0dp"
         android:layout_weight="3"
         android:gravity="center"
-        android:orientation="vertical"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp">
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:weightSum="10"
+        android:paddingRight="10dp">
+
 
         <Button
+            android:onClick=""
+            android:layout_weight="5"
+            android:id="@+id/btnhuy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_btnhuydatve"
+            android:text="Huy đăng nhập"
+            android:textColor="#E7E7E7"
+            android:textSize="20sp" />
+
+        <Button
+            android:layout_weight="5"
+            android:id="@+id/btnlogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/background_btnlogin"
-            android:text="SIGN IN"
+            android:text="Đăng nhập"
             android:textColor="#E7E7E7"
             android:textSize="20sp" />
 
@@ -102,6 +138,7 @@
 
 
             <TextView
+                android:id="@+id/txttaotk"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Create Account"

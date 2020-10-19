@@ -10,24 +10,27 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.appdatvexemphim.Adapter.TickerAdapter;
+import com.example.appdatvexemphim.Adapter.MovieFavouriteAdapter;
 import com.example.appdatvexemphim.R;
 
-public class FragmentTicker extends Fragment {
+public class FragmentFavourite extends Fragment {
 
-    ListView lvticker;
-    TickerAdapter tickerAdapter;
+    ListView lvMovieFavourite;
+    MovieFavouriteAdapter movieFavouriteAdapter;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_ticker, container, false);
+        View view = inflater.inflate(R.layout.fragment_favourite, container, false);
         addControls(view);
         return view;
     }
 
     private void addControls(View view) {
-        lvticker = view.findViewById(R.id.lvTicker);
-        tickerAdapter = new TickerAdapter(getActivity());
-        lvticker.setAdapter(tickerAdapter);
+        lvMovieFavourite = view.findViewById(R.id.lvmoviefavourite);
+        movieFavouriteAdapter = new MovieFavouriteAdapter(getActivity().getApplicationContext());
+        lvMovieFavourite.setAdapter(movieFavouriteAdapter);
     }
+
+
 }
