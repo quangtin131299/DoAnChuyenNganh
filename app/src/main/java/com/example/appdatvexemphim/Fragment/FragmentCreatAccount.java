@@ -81,6 +81,20 @@ public class FragmentCreatAccount extends Fragment {
                 String date = txtdate.getText().toString().trim();
                 String phone = txtphone.getText().toString().trim();
 
+
+                if (name.equals("") && account.equals("") && pass.equals("") == false && confimpass.equals("") && email.equals("") && date.equals("") && phone.equals("")) {
+                    Toast.makeText(getActivity(), "Không được để trống thông tin", Toast.LENGTH_LONG).show();
+                } else {
+                    return;
+                }
+
+                if (confimpass.equals(pass) == false) {
+                    Toast.makeText(getActivity(), "Xác nhận pass ko với pass không giống nhau", Toast.LENGTH_LONG).show();
+                } else {
+                    return;
+                }
+
+
                 xulyCreateAccount(name, account, Util.getMd5(pass), email, date, phone);
 
 
