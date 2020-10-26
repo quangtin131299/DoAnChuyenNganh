@@ -29,15 +29,16 @@
                 android:weightSum="10">
 
                 <TextView
+                    android:id="@+id/txtTenPhim"
                     android:gravity="center_vertical"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_weight="5"
-                    android:text="Cô gái đến từ hôm qua"
+                    android:text="Tên phim"
                     android:textColor="#FFFFFF"
-                    android:textSize="25sp" />
+                    android:textSize="20sp" />
 
 
                 <LinearLayout
@@ -56,11 +57,13 @@
                         android:textSize="15sp" />
 
                     <TextView
+                        android:id="@+id/txtNgayDatVaThoiGian"
+                        android:maxLines="2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="14/10/2020"
                         android:textColor="#FFFFFF"
-                        android:textSize="20sp" />
+                        android:textSize="17sp" />
 
                 </LinearLayout>
 
@@ -105,12 +108,13 @@
                             android:textSize="15sp" />
 
                         <TextView
+                            android:id="@+id/txtTenPhong"
                             android:gravity="center_horizontal"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:text="Phòng"
                             android:textColor="#FFFFFF"
-                            android:textSize="15sp" />
+                            android:textSize="17sp" />
 
                     </LinearLayout>
 
@@ -129,12 +133,13 @@
                             android:textSize="15sp" />
 
                         <TextView
+                            android:id="@+id/txtday"
                             android:gravity="center_horizontal"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:text="Dãy "
                             android:textColor="#FFFFFF"
-                            android:textSize="15sp" />
+                            android:textSize="17sp" />
 
                     </LinearLayout>
 
@@ -153,12 +158,13 @@
                             android:textSize="15sp" />
 
                         <TextView
+                            android:id="@+id/txtghe"
                             android:gravity="center_horizontal"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:text="Ghế"
                             android:textColor="#FFFFFF"
-                            android:textSize="15sp" />
+                            android:textSize="17sp" />
 
                     </LinearLayout>
 
@@ -182,8 +188,9 @@
                         android:layout_height="wrap_content"/>
 
                     <TextView
+                        android:id="@+id/txtTenrap"
                         android:paddingLeft="15dp"
-                        android:textSize="20sp"
+                        android:textSize="17sp"
                         android:textColor="#FFFFFF"
                         android:text="Tên rạp"
                         android:layout_width="match_parent"

@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorBackround"
     android:weightSum="10"
     android:layout_height="match_parent">
 
@@ -13,19 +12,11 @@
         android:orientation="horizontal"
         android:weightSum="10">
 
-        <ImageView
-            android:scaleType="center"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="2"
-            android:padding="2dp"
-            android:src="@drawable/icon_back" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="8"
+            android:layout_weight="10"
             android:gravity="center"
             android:text="Favourite"
             android:textColor="#FFFFFF"

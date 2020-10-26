@@ -6,7 +6,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:background="@color/colorUnSelect"
         android:padding="1dp"
-        android:id="@+id/rvMovie"
+        android:id="@+id/rvMovieNearYou"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     </androidx.recyclerview.widget.RecyclerView>

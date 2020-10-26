@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:weightSum="10"
+    android:background="@color/colorBackround"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_weight="5"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        
+        <ImageView
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_hinhdaidien"
+            android:layout_width="200dp"
+            android:layout_height="200dp"/>
+
+        <TextView
+            android:id="@+id/txtTennguoidung"
+            android:textSize="30sp"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="5dp"
+            android:textStyle="bold"
+            android:text="Tên người dùng"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+    
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_weight="4"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <LinearLayout
+            android:background="@color/colorUnSelect"
+            android:weightSum="10"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:scaleType="center"
+                android:src="@drawable/ic_info"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+            
+            <TextView
+                android:paddingLeft="5dp"
+                android:textSize="25sp"
+                android:gravity="center_vertical"
+                android:textColor="#FFFFFF"
+                android:text="Thông tin cá nhân"
+                android:layout_weight="6"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+            
+            <ImageView
+                android:scaleType="center"
+                android:src="@drawable/ic_forward"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="15dp"
+            android:background="@color/colorUnSelect"
+            android:weightSum="10"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:scaleType="center"
+                android:src="@drawable/ic_password_changes"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:paddingLeft="5dp"
+                android:gravity="center_vertical"
+                android:textSize="25sp"
+                android:textColor="#FFFFFF"
+                android:text="Thay đổi mật khẩu"
+                android:layout_weight="6"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+
+            <ImageView
+                android:src="@drawable/ic_forward"
+                android:scaleType="center"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <TextView
+            android:id="@+id/txtdangxuatdangnhap"
+            android:gravity="center"
+            android:background="@color/colorUnSelect"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:textColor="#FFFFFF"
+            android:text="Đăng xuất"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="10"
-    tools:context=".Activity.SelectSeat">
+    tools:context=".Activity.SelectSeatActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,24 +14,45 @@
         android:layout_weight="2"
         android:background="#191926"
         android:gravity="bottom"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:weightSum="10">
 
-        <TextView
-            android:layout_gravity="top"
-            android:textStyle="bold"
-            android:textSize="30sp"
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="7"
             android:gravity="center"
-            android:text="Select Seat"
-            android:textColor="#FFFFFF"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <ImageView
+                android:padding="5dp"
+                android:id="@+id/imgback"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="1.5"
+                android:scaleType="center"
+                android:src="@drawable/icon_back" />
+
+            <TextView
+                android:id="@+id/txttitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="8.5"
+                android:gravity="center"
+                android:text="Select Seat"
+                android:textColor="#FFFFFF"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="3"
             android:orientation="horizontal"
             android:weightSum="10">
 
@@ -42,6 +63,7 @@
                 android:gravity="center">
 
                 <TextView
+                    android:id="@+id/txtsophong"
                     android:layout_width="80dp"
                     android:layout_height="match_parent"
                     android:background="@drawable/background_day_selectseat"
@@ -49,6 +71,7 @@
                     android:text="27"
                     android:textColor="#fff"
                     android:textSize="15sp" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -58,19 +81,12 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/txttenphim"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Avengers: End Game"
+                    android:text="Tên phim"
                     android:textColor="#fff"
                     android:textSize="20sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Multikino: Atrium Targowek"
-                    android:textColor="#fff"
-                    android:textSize="20sp" />
-
 
             </LinearLayout>
 
@@ -87,10 +103,10 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:elevation="6dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/background_seat_selectseat"
+            android:elevation="6dp"
             android:orientation="vertical"
             android:weightSum="10">
 
@@ -100,9 +116,9 @@
                 android:layout_weight="1">
 
                 <TextView
-
+                    android:id="@+id/txttime"
                     android:layout_width="79.99dp"
-                    android:layout_height="60dp"
+                    android:layout_height="50dp"
                     android:layout_marginLeft="22dp"
                     android:background="@drawable/background_time_selectseat"
                     android:gravity="center"
@@ -114,20 +130,21 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
-                    android:layout_marginTop="20dp">
+                    android:layout_marginTop="10dp">
 
                     <ImageView
+                        android:padding="5dp"
                         android:id="@+id/imgghe"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:src="@drawable/seat" />
+                        android:src="@drawable/seatdadat" />
 
                     <TextView
-                        android:textColor="#6D6D80"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical|end"
                         android:text="BOOKED"
+                        android:textColor="#6D6D80"
                         android:textSize="10sp" />
 
                 </LinearLayout>
@@ -136,19 +153,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
-                    android:layout_marginTop="20dp">
+                    android:layout_marginTop="10dp">
 
                     <ImageView
+                        android:padding="5dp"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:src="@drawable/seat" />
+                        android:src="@drawable/seattrong" />
 
                     <TextView
-                        android:textColor="#6D6D80"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical|end"
                         android:text="AVAILABLE"
+                        android:textColor="#6D6D80"
                         android:textSize="10sp" />
 
                 </LinearLayout>
@@ -157,19 +175,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
-                    android:layout_marginTop="20dp">
+                    android:layout_marginTop="10dp">
 
                     <ImageView
+                        android:padding="5dp"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:src="@drawable/seat" />
+                        android:src="@drawable/seatchon" />
 
                     <TextView
-                        android:textColor="#6D6D80"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical|end"
                         android:text="SELETED"
+                        android:textColor="#6D6D80"
                         android:textSize="10sp" />
                 </LinearLayout>
 
@@ -178,13 +197,13 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1">
+                android:layout_weight="0.5">
 
                 <ImageView
-                    android:scaleType="center"
-                    android:src="@drawable/line"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/line" />
             </LinearLayout>
 
             <LinearLayout
@@ -211,11 +230,9 @@
                     android:weightSum="10">
 
                     <LinearLayout
-                        android:id="@+id/lineardong1"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="2.5"
-                        android:background="#6D6D80"
                         android:orientation="horizontal"
                         android:weightSum="10">
 
@@ -226,6 +243,123 @@
                             android:layout_weight="4"
                             android:orientation="vertical"
                             android:weightSum="10">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="3.3"
+                                android:orientation="horizontal"
+                                android:weightSum="10">
+
+                                <ImageView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5" />
+
+                                <ImageView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong"
+                                    android:tag="A1" />
+
+                                <ImageView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong"
+                                    android:tag="A2" />
+
+                                <ImageView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong"
+                                    android:tag="A3" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="3.3"
+                                android:orientation="horizontal"
+                                android:weightSum="10">
+
+                                <ImageView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5" />
+
+                                <ImageView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong"
+                                    android:tag="B1" />
+
+                                <ImageView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong"
+                                    android:tag="B2" />
+
+                                <ImageView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong"
+                                    android:tag="B3" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="3.3"
+                                android:orientation="horizontal"
+                                android:weightSum="10">
+
+                                <ImageView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong"
+                                    android:tag="C1" />
+
+                                <ImageView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong"
+                                    android:tag="C2" />
+
+                                <ImageView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong"
+                                    android:tag="C3" />
+
+                                <ImageView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong"
+                                    android:tag="C4" />
+
+                            </LinearLayout>
 
                         </LinearLayout>
 
@@ -245,24 +379,408 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
-                                android:layout_weight="3.3">
+                                android:layout_weight="3.3"
+                                android:orientation="horizontal"
+                                android:weightSum="10">
 
+                                <ImageView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong"
+                                    android:tag="A4" />
+
+                                <ImageView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong"
+                                    android:tag="A5" />
+
+                                <ImageView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong"
+                                    android:tag="A6" />
+
+
+                                <ImageView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5" />
 
                             </LinearLayout>
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
-                                android:layout_weight="3.3">
+                                android:layout_weight="3.3"
+                                android:orientation="horizontal"
+                                android:weightSum="10">
 
+                                <ImageView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong"
+                                    android:tag="B4" />
+
+                                <ImageView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong"
+                                    android:tag="B5" />
+
+                                <ImageView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong"
+                                    android:tag="B6" />
+
+
+                                <ImageView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5" />
 
                             </LinearLayout>
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
-                                android:layout_weight="3.3">
+                                android:layout_weight="3.3"
+                                android:orientation="horizontal"
+                                android:weightSum="10">
 
+                                <ImageView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong"
+                                    android:tag="C5" />
+
+                                <ImageView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong"
+                                    android:tag="C6" />
+
+                                <ImageView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong"
+                                    android:tag="C7" />
+
+
+                                <ImageView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong"
+                                    android:tag="C8" />
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.5" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="2.5"
+                        android:orientation="horizontal"
+                        android:weightSum="10">
+
+                        <LinearLayout
+                            android:id="@+id/nlinearnhomghe3"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="4"
+                            android:orientation="vertical"
+                            android:weightSum="10">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="3.3"
+                                android:orientation="horizontal"
+                                android:weightSum="10">
+
+                                <ImageView
+                                    android:tag="D1"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
+
+                                <ImageView
+                                    android:tag="D2"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
+
+                                <ImageView
+                                    android:tag="D3"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
+
+                                <ImageView
+                                    android:tag="D4"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="3.3"
+                                android:orientation="horizontal"
+                                android:weightSum="10">
+
+                                <ImageView
+                                    android:tag="E1"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
+
+                                <ImageView
+                                    android:tag="E2"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
+
+                                <ImageView
+                                    android:tag="E3"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
+
+                                <ImageView
+                                    android:tag="E4"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="3.3"
+                                android:orientation="horizontal"
+                                android:weightSum="10">
+
+                                <ImageView
+                                    android:tag="F1"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
+
+                                <ImageView
+                                    android:tag="F2"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
+
+                                <ImageView
+                                    android:tag="F3"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
+
+                                <ImageView
+                                    android:tag="F4"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2" />
+
+                        <LinearLayout
+                            android:id="@+id/nlinearnhomghe4"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="4"
+                            android:orientation="vertical"
+                            android:weightSum="10">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="3.3"
+                                android:orientation="horizontal"
+                                android:weightSum="10">
+
+                                <ImageView
+                                    android:tag="D5"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
+
+                                <ImageView
+                                    android:tag="D6"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
+
+                                <ImageView
+                                    android:tag="D7"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
+
+                                <ImageView
+                                    android:tag="D8"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="3.3"
+                                android:orientation="horizontal"
+                                android:weightSum="10">
+
+                                <ImageView
+                                    android:tag="E5"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
+
+                                <ImageView
+                                    android:tag="E6"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
+
+                                <ImageView
+                                    android:tag="E7"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
+
+                                <ImageView
+                                    android:tag="E8"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="3.3"
+                                android:orientation="horizontal"
+                                android:weightSum="10">
+
+                                <ImageView
+                                    android:tag="F5"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
+
+                                <ImageView
+                                    android:tag="F6"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
+
+                                <ImageView
+                                    android:tag="F7"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
+
+                                <ImageView
+                                    android:tag="F8"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
 
                             </LinearLayout>
 
@@ -279,45 +797,141 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="2.5"
-                        android:background="#6D6D80"
+
                         android:orientation="horizontal"
                         android:weightSum="10">
 
                         <LinearLayout
+                            android:id="@+id/nlinearnhomghe5"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="4"
                             android:orientation="vertical"
                             android:weightSum="10">
 
-
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
-                                android:layout_weight="3.3">
+                                android:layout_weight="3.3"
+                                android:orientation="horizontal"
+                                android:weightSum="10">
 
+                                <ImageView
+                                    android:tag="G1"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
+
+                                <ImageView
+                                    android:tag="G2"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
+
+                                <ImageView
+                                    android:tag="G3"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
+
+                                <ImageView
+                                    android:tag="G4"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
 
                             </LinearLayout>
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
-                                android:layout_weight="3.3">
+                                android:layout_weight="3.3"
+                                android:orientation="horizontal"
+                                android:weightSum="10">
 
+                                <ImageView
+                                    android:tag="H1"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
+
+                                <ImageView
+                                    android:tag="H2"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
+
+                                <ImageView
+                                    android:tag="H3"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
+
+                                <ImageView
+                                    android:tag="H4"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
 
                             </LinearLayout>
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
-                                android:layout_weight="3.3">
+                                android:layout_weight="3.3"
+                                android:orientation="horizontal"
+                                android:weightSum="10">
 
+                                <ImageView
+                                    android:tag="I1"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
+
+                                <ImageView
+                                    android:tag="I2"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
+
+                                <ImageView
+                                    android:tag="I3"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
+
+                                <ImageView
+                                    android:tag="I4"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
 
                             </LinearLayout>
-
-
                         </LinearLayout>
-
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -325,6 +939,7 @@
                             android:layout_weight="2" />
 
                         <LinearLayout
+                            android:id="@+id/nlinearnhomghe6"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="4"
@@ -334,115 +949,127 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
-                                android:layout_weight="3.3">
+                                android:layout_weight="3.3"
+                                android:orientation="horizontal"
+                                android:weightSum="10">
 
+                                <ImageView
+                                    android:tag="G5"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
 
-                            </LinearLayout>
+                                <ImageView
+                                    android:tag="G6"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
 
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="3.3">
+                                <ImageView
+                                    android:tag="G7"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
 
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="3.3">
-
-
-                            </LinearLayout>
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="0.5" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="2.5"
-                        android:background="#6D6D80"
-                        android:orientation="horizontal"
-                        android:weightSum="10">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="4"
-                            android:orientation="vertical"
-                            android:weightSum="10">
-
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="3.3">
-
+                                <ImageView
+                                    android:tag="G8"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
 
                             </LinearLayout>
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
-                                android:layout_weight="3.3">
+                                android:layout_weight="3.3"
+                                android:orientation="horizontal"
+                                android:weightSum="10">
 
+                                <ImageView
+                                    android:tag="H5"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
 
-                            </LinearLayout>
+                                <ImageView
+                                    android:tag="H6"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
 
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="3.3">
+                                <ImageView
+                                    android:tag="H7"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
 
-
-                            </LinearLayout>
-
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2" />
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="4"
-                            android:orientation="vertical"
-                            android:weightSum="10">
-
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="3.3">
-
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="3.3">
-
+                                <ImageView
+                                    android:tag="H8"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
 
                             </LinearLayout>
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
-                                android:layout_weight="3.3">
+                                android:layout_weight="3.3"
+                                android:orientation="horizontal"
+                                android:weightSum="10">
 
+                                <ImageView
+                                    android:tag="I5"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
+
+                                <ImageView
+                                    android:tag="I6"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
+
+                                <ImageView
+                                    android:tag="I7"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
+
+                                <ImageView
+                                    android:tag="I8"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2.5"
+                                    android:padding="5dp"
+                                    android:src="@drawable/seattrong" />
 
                             </LinearLayout>
+
+
                         </LinearLayout>
 
                     </LinearLayout>
@@ -453,8 +1080,19 @@
                         android:layout_height="0dp"
                         android:layout_weight="1.5"
                         android:background="#6D6D80"
+                        android:gravity="center"
                         android:orientation="horizontal"
-                        android:weightSum="10" />
+                        android:weightSum="10">
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Màn hình"
+                            android:textColor="#FFFFFF"
+                            android:textSize="30sp" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -469,22 +1107,23 @@
                 </LinearLayout>
 
             </LinearLayout>
+
             <LinearLayout
-                android:paddingRight="15dp"
-                android:paddingLeft="15dp"
-                android:gravity="center"
-                android:layout_weight="1"
                 android:layout_width="match_parent"
-                android:layout_height="0dp">
+                android:layout_height="0dp"
+                android:layout_weight="1.5"
+                android:gravity="center"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp">
 
                 <Button
-                    android:textSize="20sp"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold"
-                    android:text="Thanh toán"
-                    android:background="@drawable/background_btnlogin"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_btnlogin"
+                    android:text="Thanh toán"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 

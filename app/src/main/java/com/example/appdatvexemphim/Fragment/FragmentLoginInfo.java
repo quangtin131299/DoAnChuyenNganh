@@ -31,6 +31,7 @@ import com.example.appdatvexemphim.R;
 import com.example.appdatvexemphim.Util.Util;
 import com.google.android.material.textfield.TextInputLayout;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -123,9 +124,11 @@ public class FragmentLoginInfo extends Fragment {
             public void onResponse(String response) {
                 if (response != null) {
                     try {
-                        if (response.equals("{}") == false) {
-                            JSONObject jsonObject = new JSONObject(response);
+                        if (response.equals("fail") == false) {
+                            JSONArray jsonArray = new JSONArray(response);
+                            JSONObject jsonObject = jsonArray.getJSONObject(0);
                             Editor editor = sharedPreferences.edit();
+                            editor.putString("id", jsonObject.getString("ID"));
                             editor.putString("hoten", jsonObject.getString("HoTen"));
                             editor.putString("email", jsonObject.getString("Email"));
                             editor.putString("sdt", jsonObject.getString("SDT"));

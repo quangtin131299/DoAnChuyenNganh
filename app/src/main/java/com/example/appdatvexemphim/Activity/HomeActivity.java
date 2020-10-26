@@ -15,6 +15,7 @@ import com.example.appdatvexemphim.Adapter.MainAdapter;
 import com.example.appdatvexemphim.Fragment.FragmentCinema;
 import com.example.appdatvexemphim.Fragment.FragmentFavourite;
 import com.example.appdatvexemphim.Fragment.FragmentMovie;
+import com.example.appdatvexemphim.Fragment.FragmentProfile;
 import com.example.appdatvexemphim.Fragment.FragmentTicker;
 import com.example.appdatvexemphim.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -64,6 +65,7 @@ public class HomeActivity extends AppCompatActivity {
                         viewPager.setCurrentItem(3);
                         break;
                     case R.id.itemprofile:
+                        viewPager.setCurrentItem(4);
                         break;
                 }
                 return true;
@@ -121,12 +123,14 @@ public class HomeActivity extends AppCompatActivity {
         FragmentTicker fragmentTicker = new FragmentTicker();
         FragmentCinema fragmentCinema = new FragmentCinema();
         FragmentFavourite fragmentFavourite = new FragmentFavourite();
+        FragmentProfile fragmentProfile = new FragmentProfile();
 
 
         mainAdapter.addFragment(fragmentMovie, "Movie");
         mainAdapter.addFragment(fragmentTicker, "Ticker");
         mainAdapter.addFragment(fragmentCinema, "Cinema");
         mainAdapter.addFragment(fragmentFavourite, "Favourite");
+        mainAdapter.addFragment(fragmentProfile, "Profile");
         viewPager.setAdapter(mainAdapter);
 
     }

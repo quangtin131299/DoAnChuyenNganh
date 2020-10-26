@@ -4,82 +4,87 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBackround"
     android:orientation="vertical"
     android:weightSum="10"
-    android:background="@color/colorBackround"
     tools:context=".Activity.DetalsMovieActivity">
 
-
     <LinearLayout
-        android:layout_weight="3"
         android:layout_width="match_parent"
-        android:layout_height="0dp">
+        android:layout_height="0dp"
+        android:layout_weight="2">
 
         <ImageView
-            android:src="@mipmap/ic_launcher_round"
+            android:id="@+id/imghinhphim"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:weightSum="10"
-        android:orientation="vertical"
-        android:layout_weight="6"
         android:layout_width="match_parent"
-        android:layout_height="0dp">
+        android:layout_height="0dp"
+        android:layout_weight="7"
+        android:orientation="vertical"
+        android:weightSum="10">
 
         <TextView
-            android:layout_weight="2"
-            android:textColor="#E7E7E7"
-            android:textSize="50sp"
-            android:text="Tên Phim"
+            android:id="@+id/txttenphim"
             android:layout_width="match_parent"
-            android:layout_height="0dp"/>
-
-        <TextView
-            android:layout_weight="3"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="Tên Phim"
             android:textColor="#E7E7E7"
             android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtmota"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5.1"
             android:text="Mô tả"
             android:textAlignment="textStart"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"/>
-        <TextView
-            android:textSize="20sp"
             android:textColor="#E7E7E7"
-            android:text="YouTuBeAPI"
-            android:layout_weight="5"
+            android:textSize="12.5sp" />
+
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="0dp"/>
+            android:layout_height="0dp"
+            android:layout_weight="3.9"
+            android:text="YouTuBeAPI"
+            android:textColor="#E7E7E7"
+            android:textSize="20sp" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:weightSum="10"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:gravity="center"
         android:orientation="horizontal"
-        android:layout_weight="1"
-        android:layout_width="match_parent"
-        android:layout_height="0dp">
+        android:weightSum="10">
 
         <Button
+            android:id="@+id/btnhuy"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            android:layout_weight="5"
             android:background="@drawable/background_btnhuydatve"
             android:text="Hủy bỏ"
-            android:textColor="#FFFFFF"
-            android:layout_weight="5"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"/>
+            android:textColor="#FFFFFF" />
 
         <Button
+            android:id="@+id/btndatve"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:textColor="#FFFFFF"
+            android:layout_weight="5"
             android:background="@drawable/background_btnlogin"
             android:text="Đặt vé"
-            android:layout_weight="5"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"/>
+            android:textColor="#FFFFFF" />
 
     </LinearLayout>
 

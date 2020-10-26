@@ -4,21 +4,30 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.appdatvexemphim.DTO.XuatChieu;
 import com.example.appdatvexemphim.R;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class TimeAdapter extends RecyclerView.Adapter<TimeAdapter.ViewHolder> {
 
 
     Context context;
+    ArrayList<XuatChieu> xuatChieus;
+    onClickListenerRecyclerView onClickListenerRecyclerView;
 
-    public TimeAdapter(Context context) {
+    public TimeAdapter(Context context, ArrayList<XuatChieu> xuatChieus, onClickListenerRecyclerView onClickListenerRecyclerView) {
         this.context = context;
+        this.xuatChieus = xuatChieus;
+        this.onClickListenerRecyclerView = onClickListenerRecyclerView;
     }
 
     @NonNull
@@ -30,18 +39,40 @@ public class TimeAdapter extends RecyclerView.Adapter<TimeAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return 9;
+        return xuatChieus.size() ;
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        XuatChieu xuatChieu = xuatChieus.get(position);
+        if(xuatChieu != null){
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
+            try {
+                Date date = simpleDateFormat.parse(xuatChieu.getThoigian());
+                holder.txtthoigian.setText(simpleDateFormat.format(date));
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+        }
 
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-
+        TextView txtthoigian;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            txtthoigian = itemView.findViewById(R.id.txtthoigian);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onClickListenerRecyclerView.onClicked(getLayoutPosition());
+                }
+            });
         }
+    }
+
+    public interface onClickListenerRecyclerView{
+        void onClicked(int position);
     }
 }

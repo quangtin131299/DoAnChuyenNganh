@@ -1,11 +1,9 @@
 package com.example.appdatvexemphim.Adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +14,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.appdatvexemphim.Activity.DetalsMovieActivity;
 import com.example.appdatvexemphim.DTO.Movie;
 import com.example.appdatvexemphim.R;
 import com.squareup.picasso.Picasso;
@@ -24,12 +21,12 @@ import com.squareup.picasso.Target;
 
 import java.util.ArrayList;
 
-public class ListMovieAdapter extends RecyclerView.Adapter<ListMovieAdapter.ViewHolder> {
+public class ListMovieCommingSoonAdapter extends RecyclerView.Adapter<ListMovieCommingSoonAdapter.ViewHolder> {
 
     Context context;
     ArrayList<Movie> arrMovie;
 
-    public ListMovieAdapter(Context context, ArrayList<Movie> arrMovie) {
+    public ListMovieCommingSoonAdapter(Context context, ArrayList<Movie> arrMovie) {
         this.context = context;
         this.arrMovie = arrMovie;
     }
@@ -45,7 +42,6 @@ public class ListMovieAdapter extends RecyclerView.Adapter<ListMovieAdapter.View
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         Movie movie = arrMovie.get(position);
         if (movie != null) {
-
             holder.txttenphim.setText(movie.getTenphim());
             holder.txtthoigian.setText(movie.getThoigian() + " min");
             Picasso.with(context).load(movie.getHinh()).into(new Target() {
@@ -90,14 +86,9 @@ public class ListMovieAdapter extends RecyclerView.Adapter<ListMovieAdapter.View
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                     Movie movie = arrMovie.get(getLayoutPosition());
-                    Log.d("///////", String.valueOf(movie.getId()));
-                    Intent intent = new Intent(context, DetalsMovieActivity.class);
-                    intent.putExtra("ID_MOVIE", movie.getId());
-                    context.startActivity(intent);
+                    Toast.makeText(context, "Phim Sap chieu hay den som nhat co the", Toast.LENGTH_SHORT).show();
                 }
             });
         }
-
     }
 }
