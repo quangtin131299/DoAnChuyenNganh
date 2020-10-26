@@ -86,10 +86,11 @@ public class SelectSeatActivity extends AppCompatActivity {
         if(i.hasExtra("TEN_PHIM"))
             txttenphim.setText(i.getStringExtra("TEN_PHIM"));
 
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
+        SimpleDateFormat output = new SimpleDateFormat("HH:mm");
         try {
             Date date = simpleDateFormat.parse(seats.get(0).getGio());
-            txttime.setText(simpleDateFormat.format(date));
+            txttime.setText(output.format(date));
         } catch (ParseException e) {
             e.printStackTrace();
         }
