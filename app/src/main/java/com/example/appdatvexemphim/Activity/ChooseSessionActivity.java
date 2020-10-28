@@ -203,8 +203,7 @@ public class ChooseSessionActivity extends AppCompatActivity implements TimeAdap
     public void loadXuatChieu(int idrap, int idphim) {
         RequestQueue requestQueue = Volley.newRequestQueue(ChooseSessionActivity.this);
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-//        simpleDateFormat.format(Calendar.getInstance().getTime())
-        String url = String.format(Util.LINK_LOADSUATCHIEUTHEORAP, idrap, idphim, "2020-10-27");
+        String url = String.format(Util.LINK_LOADSUATCHIEUTHEORAP, idrap, idphim,  simpleDateFormat.format(Calendar.getInstance().getTime()));
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

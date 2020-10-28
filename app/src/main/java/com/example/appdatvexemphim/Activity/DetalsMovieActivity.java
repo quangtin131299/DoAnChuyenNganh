@@ -2,7 +2,10 @@ package com.example.appdatvexemphim.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -47,6 +50,7 @@ public class DetalsMovieActivity extends AppCompatActivity {
     ImageView imghinhphim;
     TextView txttenphim, txtmota;
     Button btnhuy, btndatve;
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +65,7 @@ public class DetalsMovieActivity extends AppCompatActivity {
     private void loadDetailMovie() {
         RequestQueue requestQueue = Volley.newRequestQueue(DetalsMovieActivity.this);
         Intent i = getIntent();
-        if(i.hasExtra("ID_MOVIE")) {
+        if (i.hasExtra("ID_MOVIE")) {
             String url = String.format(Util.LINK_MOVIEDETAIL, i.getIntExtra("ID_MOVIE", -1));
             StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
                 @Override
@@ -96,7 +100,6 @@ public class DetalsMovieActivity extends AppCompatActivity {
 
     private void updateUI(final MovieDetail movieDetail) {
         txttenphim.setText(movieDetail.getTenphim());
-        Log.d("//////", movieDetail.getHinh());
         Picasso.with(DetalsMovieActivity.this).load(movieDetail.getHinh()).into(new Target() {
             @Override
             public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
@@ -116,12 +119,10 @@ public class DetalsMovieActivity extends AppCompatActivity {
         DateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX", Locale.US);
         try {
             Date date = inputFormat.parse(movieDetail.getNgaykhoichieu());
-            Log.d("AAAAAA",simpleDateFormat.format(date));
-            txtmota.setText(movieDetail.getMota() + "\n\n"+ "Thể loại: " + movieDetail.getTenloai() + "\n" + "Ngày khởi chiếu: " + simpleDateFormat.format(date) + "\n" +"Thoi gian: " + movieDetail.getThoigian() + " phút");
+            txtmota.setText(movieDetail.getMota() + "\n\n" + "Thể loại: " + movieDetail.getTenloai() + "\n" + "Ngày khởi chiếu: " + simpleDateFormat.format(date) + "\n" + "Thoi gian: " + movieDetail.getThoigian() + " phút");
         } catch (ParseException e) {
             e.printStackTrace();
         }
-
 
 
     }
@@ -136,11 +137,19 @@ public class DetalsMovieActivity extends AppCompatActivity {
         btndatve.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i1 = getIntent();
-                Intent i = new Intent(DetalsMovieActivity.this, ChooseSessionActivity.class);
-                i.putExtra("ID_MOVIE", i1.getIntExtra("ID_MOVIE", 0));
-                i.putExtra("TEN_PHIM", txttenphim.getText());
-                startActivity(i);
+                if (ktdangnhap() == 1) {
+                    Intent i1 = getIntent();
+                    Intent i = new Intent(DetalsMovieActivity.this, ChooseSessionActivity.class);
+                    i.putExtra("ID_MOVIE", i1.getIntExtra("ID_MOVIE", 0));
+                    i.putExtra("TEN_PHIM", txttenphim.getText());
+                    startActivity(i);
+                } else {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(DetalsMovieActivity.this).setMessage("Bạn chưa đăng nhập!");
+                    builder.show();
+                    Intent intentlogin = new Intent(DetalsMovieActivity.this, LoginActivity.class);
+                    startActivity(intentlogin);
+                }
+
             }
         });
 
@@ -152,6 +161,19 @@ public class DetalsMovieActivity extends AppCompatActivity {
         txtmota = findViewById(R.id.txtmota);
         btnhuy = findViewById(R.id.btnhuy);
         btndatve = findViewById(R.id.btndatve);
+        sharedPreferences = getSharedPreferences("datalogin", Context.MODE_PRIVATE);
+    }
+
+    public int ktdangnhap() {
+        String trangthai = sharedPreferences.getString("trangthai", "");
+        if (trangthai.equals("") == false) {
+            if (trangthai.equals("1")) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+        return 0;
     }
 }
 
