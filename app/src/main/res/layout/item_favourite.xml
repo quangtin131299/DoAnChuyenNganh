@@ -83,7 +83,7 @@
                     <Button
                         android:id="@+id/btndatve"
                         android:textColor="#D8D8D8"
-                        android:text="Booking Ticker"
+                        android:text="Xem chi tiết phim"
                         android:background="@drawable/background_btnlogin"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"/>

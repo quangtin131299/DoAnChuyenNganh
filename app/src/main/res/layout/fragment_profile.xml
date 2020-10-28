@@ -39,6 +39,7 @@
         android:layout_height="0dp">
 
         <LinearLayout
+            android:id="@+id/linearupdate"
             android:background="@color/colorUnSelect"
             android:weightSum="10"
             android:orientation="horizontal"
@@ -72,6 +73,7 @@
 
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/linearupdatepass"
             android:layout_marginTop="15dp"
             android:background="@color/colorUnSelect"
             android:weightSum="10"

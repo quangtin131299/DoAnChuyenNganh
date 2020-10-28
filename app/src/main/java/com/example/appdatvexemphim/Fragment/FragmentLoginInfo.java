@@ -132,9 +132,11 @@ public class FragmentLoginInfo extends Fragment {
                             editor.putString("hoten", jsonObject.getString("HoTen"));
                             editor.putString("email", jsonObject.getString("Email"));
                             editor.putString("sdt", jsonObject.getString("SDT"));
+                            editor.putString("ngaysinh", jsonObject.getString("NgaySinh"));
                             editor.putString("taikhoan", jsonObject.getString("Account"));
                             editor.putString("pass", jsonObject.getString("Password"));
-                            editor.commit();
+                            editor.putString("trangthai", "1");
+                            editor.apply();
                             Intent i = new Intent(getActivity(), HomeActivity.class);
                             startActivity(i);
                         } else {

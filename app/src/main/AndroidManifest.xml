@@ -13,7 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activity.PaymentActivity"></activity>
+        <activity android:name=".Activity.PasswordChangeActivity"></activity>
+        <activity android:name=".Activity.ForgotPasswordActivity" />
+        <activity android:name=".Activity.UpdateUserActivity" />
+        <activity android:name=".Activity.PaymentActivity" />
         <activity android:name=".Activity.DetailTickerActivity" />
         <activity android:name=".Activity.SelectSeatActivity" />
         <activity

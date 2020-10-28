@@ -1,6 +1,6 @@
 package com.example.appdatvexemphim.Fragment;
 
-import android.app.AlertDialog.Builder;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,19 +8,21 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import com.example.appdatvexemphim.Activity.LoginActivity;
+import com.example.appdatvexemphim.Activity.UpdateUserActivity;
 import com.example.appdatvexemphim.R;
 
 public class FragmentProfile extends Fragment {
 
+    LinearLayout linearupdateuser;
     TextView txtTennguoidung, txtdangxuatdangnhap;
     SharedPreferences sharedPreferences;
 
@@ -35,16 +37,36 @@ public class FragmentProfile extends Fragment {
     }
 
     private void addEvents() {
+        linearupdateuser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (sharedPreferences.getString("hoten", "").equals("") == false) {
+                    String hoten = sharedPreferences.getString("hoten", "");
+                    String email = sharedPreferences.getString("email", "");
+                    String sdt = sharedPreferences.getString("sdt", "");
+                    String ngaysinh = sharedPreferences.getString("ngaysinh", "");
+                    Intent i = new Intent(getActivity(), UpdateUserActivity.class);
+                    i.putExtra("HOTEN", hoten);
+                    i.putExtra("EMAIL", email);
+                    i.putExtra("SDT", sdt);
+                    i.putExtra("NGAYSINH", ngaysinh);
+                    startActivity(i);
+                } else {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity()).setMessage("Bạn chưa đăng nhập");
+                    builder.show();
+                }
+
+            }
+        });
         txtdangxuatdangnhap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 TextView textView = (TextView) v;
-                if(textView.getText().toString().equals("Đăng nhập")){
+                if (textView.getText().toString().equals("Đăng nhập")) {
                     Intent i = new Intent(getActivity(), LoginActivity.class);
                     startActivity(i);
-                }else{
-                    sharedPreferences.edit().clear();
-                    sharedPreferences.edit().commit();
+                } else {
+                    sharedPreferences.edit().clear().commit();
                     txtTennguoidung.setText("Chưa đăng nhập");
                     txtdangxuatdangnhap.setText("Đăng nhập");
                     Toast.makeText(getActivity(), "Đã đăng xuất", Toast.LENGTH_SHORT).show();
@@ -55,10 +77,10 @@ public class FragmentProfile extends Fragment {
     }
 
     private void loadUser() {
-        String hoten=sharedPreferences.getString("hoten", "Chưa đăng nhập");
-        if(hoten.equals("Chưa đăng nhập")){
+        String hoten = sharedPreferences.getString("hoten", "Chưa đăng nhập");
+        if (hoten.equals("Chưa đăng nhập")) {
             txtdangxuatdangnhap.setText("Đăng nhập");
-        }else{
+        } else {
             txtdangxuatdangnhap.setText("Đăng xuất");
             txtTennguoidung.setText(hoten);
         }
@@ -69,8 +91,7 @@ public class FragmentProfile extends Fragment {
         txtTennguoidung = view.findViewById(R.id.txtTennguoidung);
         txtdangxuatdangnhap = view.findViewById(R.id.txtdangxuatdangnhap);
         sharedPreferences = getActivity().getSharedPreferences("datalogin", Context.MODE_PRIVATE);
+        linearupdateuser = view.findViewById(R.id.linearupdate);
     }
-
-
 
 }

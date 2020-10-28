@@ -77,13 +77,11 @@
         android:layout_weight="3"
         android:gravity="center"
         android:orientation="horizontal"
-        android:paddingLeft="10dp"
-        android:weightSum="10"
-        android:paddingRight="10dp">
+        android:weightSum="10">
 
 
         <Button
-            android:onClick=""
+            android:layout_margin="5dp"
             android:layout_weight="5"
             android:id="@+id/btnhuy"
             android:layout_width="match_parent"
@@ -94,6 +92,7 @@
             android:textSize="20sp" />
 
         <Button
+            android:layout_margin="5dp"
             android:layout_weight="5"
             android:id="@+id/btnlogin"
             android:layout_width="match_parent"

@@ -2,56 +2,86 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="10"
-    android:padding="10dp"
     android:background="@color/colorBackround"
-    android:orientation="vertical">
+
+    android:orientation="vertical"
+    android:weightSum="10">
 
 
     <LinearLayout
-        android:orientation="vertical"
-        android:background="@drawable/background_detailsticker"
-        android:layout_weight="2"
-        android:padding="5dp"
         android:layout_width="match_parent"
-        android:layout_height="0dp">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <ImageView
+            android:id="@+id/imgback"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1.5"
+            android:padding="5dp"
+            android:scaleType="center"
+            android:src="@drawable/icon_back" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="8.5"
+            android:gravity="center"
+            android:text="Thanh toán"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:layout_weight="2"
+        android:background="@drawable/background_detailsticker"
+        android:orientation="vertical"
+        android:padding="5dp">
 
         <LinearLayout
-            android:weightSum="10"
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="10">
 
             <ImageView
-                android:scaleType="center"
                 android:id="@+id/imgqr"
-                android:src="@mipmap/ic_launcher_round"
-                android:layout_weight="3"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:scaleType="center"
+                android:src="@mipmap/ic_launcher_round" />
 
             <LinearLayout
-                android:paddingLeft="5dp"
-                android:orientation="vertical"
-                android:layout_weight="7"
                 android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="7"
                 android:gravity="center_vertical"
-                android:layout_height="match_parent">
+                android:orientation="vertical"
+                android:paddingLeft="5dp">
 
                 <TextView
-                    android:textSize="20sp"
-                    android:textColor="#E7E7E7"
-                    android:text="Scan QR code at the entrance of the cinema hall"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:text="Scan QR code at the entrance of the cinema hall"
+                    android:textColor="#E7E7E7"
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/txtmave"
-                    android:layout_marginTop="10dp"
-                    android:textColor="#E7E7E7"
-                    android:text="Booking ID: 4764539"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Booking ID: 4764539"
+                    android:textColor="#E7E7E7" />
 
             </LinearLayout>
 
@@ -61,313 +91,336 @@
     </LinearLayout>
 
     <View
-        android:layout_weight="0.5"
         android:layout_width="match_parent"
-        android:layout_height="0dp"/>
+        android:layout_height="0dp"
+        android:layout_weight="0.1" />
+
     <LinearLayout
-        android:padding="10dp"
-        android:weightSum="10"
-        android:orientation="vertical"
-        android:background="@drawable/background_detailsticker"
-        android:layout_weight="7.5"
         android:layout_width="match_parent"
-        android:layout_height="0dp">
-
-
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:layout_weight="6"
+        android:background="@drawable/background_detailsticker"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:weightSum="10">
 
         <LinearLayout
-            android:weightSum="10"
-            android:orientation="horizontal"
-            android:layout_weight="2"
             android:layout_width="match_parent"
-            android:layout_height="0dp">
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:orientation="horizontal"
+            android:weightSum="10">
 
             <ImageView
-                android:scaleType="fitXY"
                 android:id="@+id/imgphim"
+                android:layout_width="0dp"
 
+                android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"/>
+                android:scaleType="fitXY" />
+
             <LinearLayout
-                android:orientation="vertical"
-                android:layout_weight="8"
                 android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="8"
                 android:gravity="center_vertical"
-                android:layout_height="match_parent">
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/txttenphim"
-                    android:layout_marginLeft="5dp"
-                    android:textSize="30sp"
-                    android:textColor="#E7E7E7"
-                    android:text="Wonder Woman 1984"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="Wonder Woman 1984"
+                    android:textColor="#E7E7E7"
+                    android:textSize="30sp" />
+
                 <TextView
                     android:id="@+id/txtthoigian"
-                    android:textColor="#707070"
-                    android:layout_marginLeft="5dp"
-                    android:textSize="15sp"
-                    android:text="Wonder Woman 1984"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="Wonder Woman 1984"
+                    android:textColor="#707070"
+                    android:textSize="15sp" />
 
             </LinearLayout>
 
         </LinearLayout>
+
         <LinearLayout
-            android:orientation="horizontal"
-            android:weightSum="10"
-            android:layout_weight="0.5"
             android:layout_width="match_parent"
-            android:layout_height="0dp">
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:orientation="horizontal"
+            android:weightSum="10">
 
             <TextView
-                android:layout_weight="2"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:layout_weight="2" />
 
             <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_weight="8"
                 android:scaleType="fitCenter"
-                android:src="@drawable/devider_ngang"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"/>
+                android:src="@drawable/devider_ngang" />
         </LinearLayout>
+
         <LinearLayout
-            android:weightSum="10"
-            android:orientation="horizontal"
-            android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="0dp">
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:weightSum="10">
 
             <ImageView
-                android:scaleType="center"
-                android:src="@drawable/date"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"/>
+                android:scaleType="center"
+                android:src="@drawable/date" />
+
             <LinearLayout
-                android:orientation="vertical"
-                android:layout_weight="8"
                 android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="8"
                 android:gravity="center_vertical"
-                android:layout_height="match_parent">
+                android:orientation="vertical">
 
                 <TextView
-                    android:layout_marginBottom="2dp"
-                    android:textColor="#707070"
-                    android:layout_marginLeft="5dp"
-                    android:textSize="10sp"
-                    android:text="Ngày &amp; giờ"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginBottom="2dp"
+                    android:text="Ngày &amp; giờ"
+                    android:textColor="#707070"
+                    android:textSize="10sp" />
 
                 <TextView
                     android:id="@+id/txtngaygio"
-                    android:layout_marginLeft="5dp"
-                    android:textSize="20sp"
-                    android:textColor="#E7E7E7"
-                    android:text="Wonder Woman 1984"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="Wonder Woman 1984"
+                    android:textColor="#E7E7E7"
+                    android:textSize="20sp" />
 
 
             </LinearLayout>
 
         </LinearLayout>
+
         <LinearLayout
-            android:orientation="horizontal"
-            android:weightSum="10"
-            android:layout_weight="0.5"
             android:layout_width="match_parent"
-            android:layout_height="0dp">
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:orientation="horizontal"
+            android:weightSum="10">
 
             <TextView
-                android:layout_weight="2"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:layout_weight="2" />
 
             <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_weight="8"
                 android:scaleType="fitCenter"
-                android:src="@drawable/devider_ngang"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"/>
+                android:src="@drawable/devider_ngang" />
         </LinearLayout>
 
         <LinearLayout
-            android:weightSum="10"
-            android:orientation="horizontal"
-            android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="0dp">
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:weightSum="10">
 
             <ImageView
-                android:scaleType="center"
-                android:src="@drawable/cinema"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"/>
+                android:scaleType="center"
+                android:src="@drawable/cinema" />
+
             <LinearLayout
-                android:orientation="vertical"
-                android:layout_weight="8"
                 android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="8"
                 android:gravity="center_vertical"
-                android:layout_height="match_parent">
+                android:orientation="vertical">
 
                 <TextView
-                    android:layout_marginBottom="2dp"
-                    android:textColor="#707070"
-                    android:layout_marginLeft="5dp"
-                    android:textSize="10sp"
-                    android:text="Rạp phim"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginBottom="2dp"
+                    android:text="Rạp phim"
+                    android:textColor="#707070"
+                    android:textSize="10sp" />
 
                 <TextView
                     android:id="@+id/txtcinema"
-                    android:layout_marginLeft="5dp"
-                    android:textSize="20sp"
-                    android:textColor="#E7E7E7"
-                    android:text="Wonder Woman 1984"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="Wonder Woman 1984"
+                    android:textColor="#E7E7E7"
+                    android:textSize="20sp" />
 
 
             </LinearLayout>
 
         </LinearLayout>
+
         <LinearLayout
-            android:orientation="horizontal"
-            android:weightSum="10"
-            android:layout_weight="0.5"
             android:layout_width="match_parent"
-            android:layout_height="0dp">
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:orientation="horizontal"
+            android:weightSum="10">
 
             <TextView
-                android:layout_weight="2"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:layout_weight="2" />
 
             <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_weight="8"
                 android:scaleType="fitCenter"
-                android:src="@drawable/devider_ngang"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"/>
+                android:src="@drawable/devider_ngang" />
         </LinearLayout>
+
         <LinearLayout
-            android:weightSum="10"
-            android:orientation="horizontal"
-            android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="0dp">
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:weightSum="10">
 
             <ImageView
-                android:scaleType="center"
-                android:src="@drawable/seatdadat"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"/>
+                android:scaleType="center"
+                android:src="@drawable/seatdadat" />
+
             <LinearLayout
-                android:orientation="vertical"
-                android:layout_weight="8"
                 android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="8"
                 android:gravity="center_vertical"
-                android:layout_height="match_parent">
+                android:orientation="vertical">
 
                 <TextView
-                    android:layout_marginBottom="2dp"
-                    android:textColor="#707070"
-                    android:layout_marginLeft="5dp"
-                    android:textSize="10sp"
-                    android:text="Ghê và dãy"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginBottom="2dp"
+                    android:text="Ghê và dãy"
+                    android:textColor="#707070"
+                    android:textSize="10sp" />
 
                 <TextView
                     android:id="@+id/txtghe"
-                    android:layout_marginLeft="5dp"
-                    android:textSize="20sp"
-                    android:textColor="#E7E7E7"
-                    android:text="Wonder Woman 1984"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="Wonder Woman 1984"
+                    android:textColor="#E7E7E7"
+                    android:textSize="20sp" />
 
 
             </LinearLayout>
 
         </LinearLayout>
+
         <LinearLayout
-            android:orientation="horizontal"
-            android:weightSum="10"
-            android:layout_weight="0.5"
             android:layout_width="match_parent"
-            android:layout_height="0dp">
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:orientation="horizontal"
+            android:weightSum="10">
 
             <TextView
-                android:layout_weight="2"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:layout_weight="2" />
 
             <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_weight="8"
                 android:scaleType="fitCenter"
-                android:src="@drawable/devider_ngang"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"/>
+                android:src="@drawable/devider_ngang" />
         </LinearLayout>
+
         <LinearLayout
-            android:weightSum="10"
-            android:orientation="horizontal"
-           android:layout_weight="2"
             android:layout_width="match_parent"
-            android:layout_height="0dp">
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:orientation="horizontal"
+            android:weightSum="10">
 
             <ImageView
-                android:scaleType="center"
-                android:src="@drawable/location"
-                android:layout_weight="2"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:scaleType="center"
+                android:src="@drawable/location" />
 
             <LinearLayout
-                android:orientation="vertical"
-                android:layout_weight="8"
                 android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="8"
 
-                android:layout_height="match_parent">
+                android:orientation="vertical">
 
                 <TextView
-                    android:layout_marginBottom="2dp"
-                    android:textColor="#707070"
-                    android:layout_marginLeft="5dp"
-                    android:textSize="10sp"
-                    android:text="Wonder Woman 1984"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginBottom="2dp"
+                    android:text="Wonder Woman 1984"
+                    android:textColor="#707070"
+                    android:textSize="10sp" />
 
                 <TextView
                     android:id="@+id/txtdiachi"
-                    android:layout_marginLeft="5dp"
-                    android:textSize="20sp"
-                    android:textColor="#E7E7E7"
-                    android:text="Wonder Woman 1984"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="Wonder Woman 1984"
+                    android:textColor="#E7E7E7"
+                    android:textSize="20sp" />
 
 
             </LinearLayout>
 
         </LinearLayout>
 
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.9">
 
-
-
-
+        <Button
+            android:id="@+id/btnhuy"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="5"
+            android:background="@drawable/background_btnhuydatve"
+            android:text="Hủy Vé"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 
 </LinearLayout>

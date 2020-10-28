@@ -1117,6 +1117,7 @@
                 android:paddingRight="15dp">
 
                 <Button
+                    android:id="@+id/btnthanhtoan"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/background_btnlogin"

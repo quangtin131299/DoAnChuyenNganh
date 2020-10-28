@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="10"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:weightSum="10">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,17 +15,25 @@
         android:paddingLeft="8dp"
         android:paddingRight="8dp">
 
-
-        <EditText
-            android:id="@+id/txtname"
-            android:inputType="text"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edlayoutname"
             android:layout_width="match_parent"
-            android:layout_height="43dp"
-            android:background="@drawable/background_textviewaccountandpass"
-            android:hint="Enter your Name"
-            android:paddingLeft="10dp"
-            android:textColor="#E7E7E7"
-            android:textColorHint="#707070" />
+            android:layout_height="wrap_content"
+            app:hintEnabled="false">
+
+            <EditText
+                android:id="@+id/txtname"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:background="@drawable/background_textviewaccountandpass"
+                android:hint="Enter your Name"
+                android:inputType="text"
+                android:paddingLeft="10dp"
+                android:textColor="#E7E7E7"
+                android:textColorHint="#707070" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
 
     </LinearLayout>
 
@@ -37,17 +46,87 @@
         android:paddingLeft="8dp"
         android:paddingRight="8dp">
 
-
-        <EditText
-            android:id="@+id/txtaccount"
-            android:inputType="text"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edlayouttk"
             android:layout_width="match_parent"
-            android:layout_height="43dp"
-            android:background="@drawable/background_textviewaccountandpass"
-            android:hint="Enter your Account"
-            android:paddingLeft="10dp"
-            android:textColor="#E7E7E7"
-            android:textColorHint="#707070" />
+            android:layout_height="wrap_content"
+            app:hintEnabled="false">
+
+            <EditText
+                android:id="@+id/txtaccount"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:background="@drawable/background_textviewaccountandpass"
+                android:hint="Enter your Account"
+                android:inputType="text"
+                android:paddingLeft="10dp"
+                android:textColor="#E7E7E7"
+                android:textColorHint="#707070" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.25"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edlayoutpass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintEnabled="false">
+
+            <EditText
+                android:id="@+id/txtpass"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:background="@drawable/background_textviewaccountandpass"
+                android:hint="Enter your Password"
+                android:inputType="textPassword"
+                android:paddingLeft="10dp"
+                android:textColor="#E7E7E7"
+                android:textColorHint="#707070" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.25"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edlayoutconfirmpass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintEnabled="false">
+
+            <EditText
+                android:id="@+id/txtconfimpass"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:background="@drawable/background_textviewaccountandpass"
+                android:hint="Confirm your Password"
+                android:inputType="textPassword"
+                android:paddingLeft="10dp"
+                android:textColor="#E7E7E7"
+                android:textColorHint="#707070" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
 
     </LinearLayout>
 
@@ -61,17 +140,25 @@
         android:paddingRight="8dp">
 
 
-
-        <EditText
-            android:id="@+id/txtpass"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edlayoutemail"
             android:layout_width="match_parent"
-            android:layout_height="43dp"
-            android:background="@drawable/background_textviewaccountandpass"
-            android:hint="Enter your Password"
-            android:inputType="textPassword"
-            android:paddingLeft="10dp"
-            android:textColor="#E7E7E7"
-            android:textColorHint="#707070" />
+            android:layout_height="wrap_content"
+            app:hintEnabled="false">
+
+            <EditText
+                android:id="@+id/txtemail"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:background="@drawable/background_textviewaccountandpass"
+                android:hint="Enter your Email"
+                android:inputType="textEmailAddress"
+                android:paddingLeft="10dp"
+                android:textColor="#E7E7E7"
+                android:textColorHint="#707070" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
 
     </LinearLayout>
 
@@ -84,18 +171,22 @@
         android:paddingLeft="8dp"
         android:paddingRight="8dp">
 
-
-        <EditText
-            android:id="@+id/txtconfimpass"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edlayoutbirthday"
             android:layout_width="match_parent"
-            android:layout_height="43dp"
-            android:background="@drawable/background_textviewaccountandpass"
-            android:hint="Confirm your Password"
-            android:inputType="textPassword"
-            android:paddingLeft="10dp"
-            android:textColor="#E7E7E7"
-            android:textColorHint="#707070" />
+            android:layout_height="wrap_content"
+            app:hintEnabled="false">
 
+            <EditText
+                android:id="@+id/txtdate"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:background="@drawable/background_textviewaccountandpass"
+                android:hint="Enter your Birthday"
+                android:paddingLeft="10dp"
+                android:textColor="#E7E7E7"
+                android:textColorHint="#707070" />
+        </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
     <LinearLayout
@@ -107,62 +198,26 @@
         android:paddingLeft="8dp"
         android:paddingRight="8dp">
 
-
-        <EditText
-            android:id="@+id/txtemail"
-            android:inputType="textEmailAddress"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edlayoutphone"
             android:layout_width="match_parent"
-            android:layout_height="43dp"
-            android:background="@drawable/background_textviewaccountandpass"
-            android:hint="Enter your Email"
-            android:paddingLeft="10dp"
-            android:textColor="#E7E7E7"
-            android:textColorHint="#707070" />
+            android:layout_height="wrap_content"
+            app:hintEnabled="false">
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1.25"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp">
+            <EditText
+                android:id="@+id/txtsdt"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:background="@drawable/background_textviewaccountandpass"
+                android:hint="Enter your Phone"
+                android:inputType="number"
+                android:paddingLeft="10dp"
+                android:textColor="#E7E7E7"
+                android:textColorHint="#707070" />
 
 
-        <EditText
-            android:id="@+id/txtdate"
-            android:layout_width="match_parent"
-            android:layout_height="43dp"
-            android:background="@drawable/background_textviewaccountandpass"
-            android:hint="Enter your Birthday"
-            android:paddingLeft="10dp"
-            android:textColor="#E7E7E7"
-            android:textColorHint="#707070" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1.25"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp">
-
-
-        <EditText
-            android:id="@+id/txtsdt"
-            android:layout_width="match_parent"
-            android:layout_height="43dp"
-            android:background="@drawable/background_textviewaccountandpass"
-            android:hint="Enter your Phone"
-            android:inputType="number"
-            android:paddingLeft="10dp"
-            android:textColor="#E7E7E7"
-            android:textColorHint="#707070" />
 
     </LinearLayout>
 
@@ -171,13 +226,27 @@
         android:layout_height="0dp"
         android:layout_weight="1.1"
         android:gravity="center"
-        android:orientation="vertical"
+        android:weightSum="10"
+        android:orientation="horizontal"
         android:paddingLeft="8dp"
         android:paddingRight="8dp">
 
         <Button
+            android:layout_margin="5dp"
+            android:layout_weight="5"
+            android:id="@+id/btnhuy"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_btnhuydatve"
+            android:text="Huy đăng nhập"
+            android:textColor="#E7E7E7"
+            android:textSize="20sp" />
+
+        <Button
+            android:layout_margin="5dp"
+            android:layout_weight="5"
             android:id="@+id/btncreate"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@drawable/background_btnlogin"
             android:text="Create Account"
@@ -185,8 +254,6 @@
             android:textSize="20sp" />
 
     </LinearLayout>
-
-
 
 
 </LinearLayout>

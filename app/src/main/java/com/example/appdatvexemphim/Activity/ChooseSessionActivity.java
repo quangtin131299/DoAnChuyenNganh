@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -47,6 +48,7 @@ public class ChooseSessionActivity extends AppCompatActivity implements TimeAdap
     Button btnChonGhe;
     TimeAdapter timeAdapter;
     RecyclerView rvTime;
+    ImageView imgback;
 
 
     XuatChieu xctemp;
@@ -98,6 +100,12 @@ public class ChooseSessionActivity extends AppCompatActivity implements TimeAdap
     }
 
     private void addEvents() {
+        imgback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         btnChonGhe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -155,6 +163,7 @@ public class ChooseSessionActivity extends AppCompatActivity implements TimeAdap
         btnChonGhe = findViewById(R.id.btnChonGhe);
         spinner = findViewById(R.id.spinner);
         rvTime = findViewById(R.id.lvTime);
+        imgback = findViewById(R.id.imgback);
         rapAdapter = new RapAdapter(ChooseSessionActivity.this, cinemas);
         spinner.setAdapter(rapAdapter);
         timeAdapter = new TimeAdapter(getApplicationContext(), xuatChieus, ChooseSessionActivity.this);
@@ -194,7 +203,8 @@ public class ChooseSessionActivity extends AppCompatActivity implements TimeAdap
     public void loadXuatChieu(int idrap, int idphim) {
         RequestQueue requestQueue = Volley.newRequestQueue(ChooseSessionActivity.this);
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String url = String.format(Util.LINK_LOADSUATCHIEUTHEORAP, idrap, idphim, simpleDateFormat.format(Calendar.getInstance().getTime()));
+//        simpleDateFormat.format(Calendar.getInstance().getTime())
+        String url = String.format(Util.LINK_LOADSUATCHIEUTHEORAP, idrap, idphim, "2020-10-27");
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

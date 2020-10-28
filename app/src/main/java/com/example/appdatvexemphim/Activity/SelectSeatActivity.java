@@ -2,13 +2,10 @@ package com.example.appdatvexemphim.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,26 +14,24 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.appdatvexemphim.DTO.Room;
 import com.example.appdatvexemphim.DTO.Seat;
 import com.example.appdatvexemphim.R;
 import com.example.appdatvexemphim.Util.Util;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.logging.Logger;
-
 
 public class SelectSeatActivity extends AppCompatActivity {
-
     ArrayList<LinearLayout> arrlinear = new ArrayList<>();
 
     ArrayList<Seat> seats = new ArrayList<>();
@@ -51,7 +46,55 @@ public class SelectSeatActivity extends AppCompatActivity {
         addControls();
         addEvents();
         loadData();
+        loadDataPhong();
 
+
+    }
+
+    private void loadDataPhong() {
+        Intent i = getIntent();
+        if (i.hasExtra("ID_MOVIE") && i.hasExtra("NGAYDATHIENTAI") && i.hasExtra("SUATCHIEU") && i.hasExtra("ID_CINEMA")) {
+            String url = String.format(Util.LINK_LOADPHONG, i.getStringExtra("SUATCHIEU"), i.getIntExtra("ID_MOVIE", 0), i.getIntExtra("ID_CINEMA", 0), i.getStringExtra("NGAYDATHIENTAI"));
+            RequestQueue requestQueue = Volley.newRequestQueue(SelectSeatActivity.this);
+            StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    JSONArray jsonArray = null;
+                    try {
+                        jsonArray = new JSONArray(response);
+                        JSONObject jsonObject = jsonArray.getJSONObject(0);
+                        Room room = new Room();
+                        room.setId(jsonObject.getInt("ID"));
+                        room.setTenphong(jsonObject.getString("TenPhong"));
+                        room.setThoigian(jsonObject.getString("Gio"));
+
+                        updateRoom(room);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+
+                }
+            });
+            requestQueue.add(stringRequest);
+        }
+
+    }
+
+    private void updateRoom(Room room) {
+        txtsophong.setText(room.getTenphong());
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
+        SimpleDateFormat output = new SimpleDateFormat("HH:mm");
+        try {
+            Date date = simpleDateFormat.parse(room.getThoigian());
+            txttime.setText(output.format(date));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -81,19 +124,6 @@ public class SelectSeatActivity extends AppCompatActivity {
                 }
             }
         }
-        Intent i = getIntent();
-        txtsophong.setText(seats.get(0).getTenphong());
-        if(i.hasExtra("TEN_PHIM"))
-            txttenphim.setText(i.getStringExtra("TEN_PHIM"));
-
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
-        SimpleDateFormat output = new SimpleDateFormat("HH:mm");
-        try {
-            Date date = simpleDateFormat.parse(seats.get(0).getGio());
-            txttime.setText(output.format(date));
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
 
     }
 
@@ -104,7 +134,7 @@ public class SelectSeatActivity extends AppCompatActivity {
         String url = "";
         if (intent.hasExtra("NGAYDATHIENTAI") && intent.hasExtra("ID_MOVIE") && intent.hasExtra("ID_CINEMA") && intent.hasExtra("SUATCHIEU")) {
             url = String.format(Util.LINK_LOADGHE, intent.getIntExtra("ID_CINEMA", 0), intent.getIntExtra("ID_MOVIE", 0), intent.getStringExtra("SUATCHIEU"), intent.getStringExtra("NGAYDATHIENTAI"));
-            Log.d("dsadasdsadsa", url);
+
         }
 
         RequestQueue requestQueue = Volley.newRequestQueue(SelectSeatActivity.this);
@@ -120,13 +150,10 @@ public class SelectSeatActivity extends AppCompatActivity {
                             SimpleDateFormat format = new SimpleDateFormat("hh:mm:ss");
                             SimpleDateFormat output = new SimpleDateFormat("hh:mm");
                             Date date1 = format.parse(jsonArray.getJSONObject(i).getString("Gio"));
-                            seat.setGio(output.format(date1));
-                            seat.setTenphong(jsonArray.getJSONObject(i).getString("TenPhong"));
                             seat.setTenghe(jsonArray.getJSONObject(i).getString("TenGhe"));
                             seat.setTrangthai(jsonArray.getJSONObject(i).getString("TrangThai"));
                             seats.add(seat);
                         }
-                        Log.d("dhjskahkdsa", seats.size() + "");
                         updateUI();
 
                     } catch (JSONException | ParseException e) {
@@ -184,8 +211,4 @@ public class SelectSeatActivity extends AppCompatActivity {
 
 
     }
-
-
 }
-
-

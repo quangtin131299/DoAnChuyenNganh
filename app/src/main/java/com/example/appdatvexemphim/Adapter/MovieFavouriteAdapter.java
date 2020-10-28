@@ -75,7 +75,6 @@ public class MovieFavouriteAdapter extends BaseAdapter {
 
             @Override
             public void onBitmapFailed(Drawable errorDrawable) {
-                Toast.makeText(context, "Bị lỗi gì đó rồi", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -88,7 +87,6 @@ public class MovieFavouriteAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(context, DetalsMovieActivity.class);
-                Toast.makeText(context, movieFavourite.getId() + "", Toast.LENGTH_SHORT).show();
                 i.putExtra("ID_MOVIE", movieFavourite.getId());
                 context.startActivity(i);
 
