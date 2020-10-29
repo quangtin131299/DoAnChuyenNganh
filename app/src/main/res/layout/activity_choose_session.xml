@@ -78,14 +78,14 @@
                     android:background="@drawable/background_choosingsession">
 
                     <Spinner
-                        android:paddingBottom="5dp"
-                        android:paddingTop="5dp"
-                        android:paddingLeft="5dp"
-                        android:paddingRight="30dp"
                         android:id="@+id/spinner"
                         android:layout_width="match_parent"
                         android:layout_height="70dp"
                         android:backgroundTint="#FFF"
+                        android:paddingLeft="5dp"
+                        android:paddingTop="5dp"
+                        android:paddingRight="30dp"
+                        android:paddingBottom="5dp"
                         android:popupBackground="@color/colorUnSelect" />
                 </LinearLayout>
 
@@ -112,18 +112,35 @@
                 android:textColor="#FFFFFF"
                 android:textSize="20sp" />
 
-            <EditText
-                android:id="@+id/txtChooseDate"
+            <LinearLayout
+                android:gravity="center"
+                android:weightSum="10"
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/background_textviewaccountandpass"
-                android:hint="Chọn ngày"
-                android:paddingLeft="9dp"
-                android:textColor="#FFFFFF"
-                android:textColorHint="#707070" />
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:focusable="false"
+                    android:layout_margin="10dp"
+                    android:layout_weight="8"
+                    android:id="@+id/txtChooseDate"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/background_textviewaccountandpass"
+                    android:hint="Chọn ngày"
+                    android:paddingLeft="9dp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#707070" />
+
+                <Button
+                    android:id="@+id/btnchonngay"
+                    android:layout_margin="10dp"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"/>
+
+
+            </LinearLayout>
 
 
         </LinearLayout>

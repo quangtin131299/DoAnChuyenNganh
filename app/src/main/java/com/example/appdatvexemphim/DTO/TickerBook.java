@@ -100,4 +100,19 @@ public class TickerBook implements Serializable {
     public void setNgaydat(String ngaydat) {
         this.ngaydat = ngaydat;
     }
+
+    @Override
+    public String toString() {
+        return "TickerBook{" +
+                "idtickerbook=" + idtickerbook +
+                ", idsuat=" + idsuat +
+                ", idghe=" + idghe +
+                ", idphim=" + idphim +
+                ", idkhachhang=" + idkhachhang +
+                ", idrap=" + idrap +
+                ", idhoadon=" + idhoadon +
+                ", trangthai='" + trangthai + '\'' +
+                ", ngaydat='" + ngaydat + '\'' +
+                '}';
+    }
 }

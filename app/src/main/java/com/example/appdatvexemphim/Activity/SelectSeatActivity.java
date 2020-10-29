@@ -2,10 +2,13 @@ package com.example.appdatvexemphim.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +21,8 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.appdatvexemphim.DTO.Room;
 import com.example.appdatvexemphim.DTO.Seat;
+import com.example.appdatvexemphim.DTO.Ticker;
+import com.example.appdatvexemphim.DTO.TickerBook;
 import com.example.appdatvexemphim.R;
 import com.example.appdatvexemphim.Util.Util;
 
@@ -37,6 +42,8 @@ public class SelectSeatActivity extends AppCompatActivity {
     ArrayList<Seat> seats = new ArrayList<>();
     TextView txttime, txtsophong, txttenphim;
     ImageView imgback;
+    TickerBook tickerBook;
+    Button btnthanhtoan;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -54,6 +61,7 @@ public class SelectSeatActivity extends AppCompatActivity {
     private void loadDataPhong() {
         Intent i = getIntent();
         if (i.hasExtra("ID_MOVIE") && i.hasExtra("NGAYDATHIENTAI") && i.hasExtra("SUATCHIEU") && i.hasExtra("ID_CINEMA")) {
+            tickerBook = (TickerBook) i.getSerializableExtra("TICKERBOOK");
             String url = String.format(Util.LINK_LOADPHONG, i.getStringExtra("SUATCHIEU"), i.getIntExtra("ID_MOVIE", 0), i.getIntExtra("ID_CINEMA", 0), i.getStringExtra("NGAYDATHIENTAI"));
             RequestQueue requestQueue = Volley.newRequestQueue(SelectSeatActivity.this);
             StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
@@ -105,6 +113,14 @@ public class SelectSeatActivity extends AppCompatActivity {
                 finish();
             }
         });
+        btnthanhtoan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(SelectSeatActivity.this, PaymentActivity.class);
+                i.putExtra("TICKERBOOK", tickerBook);
+                startActivity(i);
+            }
+        });
     }
 
     private void updateUI() {
@@ -115,8 +131,8 @@ public class SelectSeatActivity extends AppCompatActivity {
                     for (int k = 0; k < linearLayout.getChildCount(); k++) {
                         Seat tempseat = seats.get(l);
                         ImageView tempimage = (ImageView) linearLayout.getChildAt(k);
-                        if (tempseat.getTenghe().equals(tempimage.getTag() + "")) {
-                            if (tempseat.getTrangthai().equalsIgnoreCase("Đã đặt")) {
+                        if(tempimage.getTag() != null){
+                            if(tempseat.getId() == Integer.parseInt(String.valueOf(tempimage.getTag()))){
                                 tempimage.setImageResource(R.drawable.seatdadat);
                             }
                         }
@@ -147,16 +163,13 @@ public class SelectSeatActivity extends AppCompatActivity {
                         for (int i = 0; i < jsonArray.length(); i++) {
                             Seat seat = new Seat();
                             seat.setId(jsonArray.getJSONObject(i).getInt("ID"));
-                            SimpleDateFormat format = new SimpleDateFormat("hh:mm:ss");
-                            SimpleDateFormat output = new SimpleDateFormat("hh:mm");
-                            Date date1 = format.parse(jsonArray.getJSONObject(i).getString("Gio"));
                             seat.setTenghe(jsonArray.getJSONObject(i).getString("TenGhe"));
                             seat.setTrangthai(jsonArray.getJSONObject(i).getString("TrangThai"));
                             seats.add(seat);
                         }
                         updateUI();
 
-                    } catch (JSONException | ParseException e) {
+                    } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 }
@@ -178,6 +191,13 @@ public class SelectSeatActivity extends AppCompatActivity {
         txtsophong = findViewById(R.id.txtsophong);
         txttenphim = findViewById(R.id.txttenphim);
         imgback = findViewById(R.id.imgback);
+        btnthanhtoan = findViewById(R.id.btnthanhtoan);
+
+        Intent intent = getIntent();
+        if (intent.hasExtra("TICKERBOOK")) {
+            tickerBook = (TickerBook) intent.getSerializableExtra("TICKERBOOK");
+
+        }
 
         arrlinear.add((LinearLayout) findViewById(R.id.nlinearnhomghe1));
         arrlinear.add((LinearLayout) findViewById(R.id.nlinearnhomghe2));
@@ -197,8 +217,10 @@ public class SelectSeatActivity extends AppCompatActivity {
                             ImageView imageView1 = (ImageView) v;
                             if (imageView1.getDrawable().getConstantState() == getResources().getDrawable(R.drawable.seattrong).getConstantState()) {
                                 imageView1.setImageResource(R.drawable.seatchon);
+                                tickerBook.setIdghe(Integer.parseInt((String) imageView1.getTag()));
                             } else {
                                 imageView1.setImageResource(R.drawable.seattrong);
+                                tickerBook.setIdghe(0);
                             }
                         }
                     });

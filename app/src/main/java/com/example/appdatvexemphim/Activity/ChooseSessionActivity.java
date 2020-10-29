@@ -1,7 +1,9 @@
 package com.example.appdatvexemphim.Activity;
 
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -26,6 +28,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.appdatvexemphim.Adapter.RapAdapter;
 import com.example.appdatvexemphim.Adapter.TimeAdapter;
 import com.example.appdatvexemphim.DTO.Cinema;
+import com.example.appdatvexemphim.DTO.TickerBook;
 import com.example.appdatvexemphim.DTO.XuatChieu;
 import com.example.appdatvexemphim.R;
 import com.example.appdatvexemphim.Util.Util;
@@ -33,9 +36,11 @@ import com.example.appdatvexemphim.Util.Util;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 public class ChooseSessionActivity extends AppCompatActivity implements TimeAdapter.onClickListenerRecyclerView {
 
@@ -49,6 +54,11 @@ public class ChooseSessionActivity extends AppCompatActivity implements TimeAdap
     TimeAdapter timeAdapter;
     RecyclerView rvTime;
     ImageView imgback;
+    Button btnchonngay;
+
+    TickerBook tickerBook = new TickerBook();
+
+    SharedPreferences sharedPreferences;
 
 
     XuatChieu xctemp;
@@ -121,9 +131,23 @@ public class ChooseSessionActivity extends AppCompatActivity implements TimeAdap
                         intent.putExtra("SUATCHIEU", xctemp.getThoigian());
                     }
                     intent.putExtra("ID_MOVIE", i1.getIntExtra("ID_MOVIE", 0));
+                    tickerBook.setIdphim(cinema.getId());
+                    SimpleDateFormat formatngaydat = new SimpleDateFormat("dd/MM/yyyy");
+                    SimpleDateFormat outputformatngaydat = new SimpleDateFormat("yyyy-MM-dd");
+                    try {
+                        Date ngaydat = formatngaydat.parse(txtChooseDate.getText().toString().trim());
+                        tickerBook.setNgaydat(outputformatngaydat.format(ngaydat));
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                    String idkhachhang = sharedPreferences.getString("id", "");
+                    if (idkhachhang.equals("") == false) {
+                        tickerBook.setIdkhachhang(Integer.parseInt(idkhachhang));
+                    }
                     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
                     intent.putExtra("NGAYDATHIENTAI", simpleDateFormat.format(Calendar.getInstance().getTime()));
                     intent.putExtra("TEN_PHIM", i1.getStringExtra("TEN_PHIM"));
+                    intent.putExtra("TICKERBOOK", tickerBook);
                     startActivity(intent);
 
                 }
@@ -131,7 +155,7 @@ public class ChooseSessionActivity extends AppCompatActivity implements TimeAdap
             }
         });
 
-        txtChooseDate.setOnClickListener(new View.OnClickListener() {
+        btnchonngay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ChooseDate();
@@ -148,6 +172,7 @@ public class ChooseSessionActivity extends AppCompatActivity implements TimeAdap
                     timeAdapter.notifyDataSetChanged();
                     loadXuatChieu(cinema.getId(), intent.getIntExtra("ID_MOVIE", 0));
                 }
+                tickerBook.setIdrap(cinema.getId());
 
             }
 
@@ -171,6 +196,9 @@ public class ChooseSessionActivity extends AppCompatActivity implements TimeAdap
         linearLayoutManager.setOrientation(RecyclerView.HORIZONTAL);
         rvTime.setLayoutManager(linearLayoutManager);
         rvTime.setAdapter(timeAdapter);
+        btnchonngay = findViewById(R.id.btnchonngay);
+
+        sharedPreferences = getSharedPreferences("datalogin", Context.MODE_PRIVATE);
 
     }
 
@@ -187,7 +215,6 @@ public class ChooseSessionActivity extends AppCompatActivity implements TimeAdap
                     calendar.set(Calendar.YEAR, year);
                     calendar.set(Calendar.MONTH, month);
                     calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-
                     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
                     txtChooseDate.setText(simpleDateFormat.format(calendar.getTime()));
                 } else {
@@ -203,7 +230,8 @@ public class ChooseSessionActivity extends AppCompatActivity implements TimeAdap
     public void loadXuatChieu(int idrap, int idphim) {
         RequestQueue requestQueue = Volley.newRequestQueue(ChooseSessionActivity.this);
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String url = String.format(Util.LINK_LOADSUATCHIEUTHEORAP, idrap, idphim,  simpleDateFormat.format(Calendar.getInstance().getTime()));
+//        simpleDateFormat.format(Calendar.getInstance().getTime())
+        String url = String.format(Util.LINK_LOADSUATCHIEUTHEORAP, idrap, idphim, simpleDateFormat.format(Calendar.getInstance().getTime()));
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -237,5 +265,6 @@ public class ChooseSessionActivity extends AppCompatActivity implements TimeAdap
     @Override
     public void onClicked(int position) {
         xctemp = xuatChieus.get(position);
+        tickerBook.setIdsuat(xctemp.getId());
     }
 }
