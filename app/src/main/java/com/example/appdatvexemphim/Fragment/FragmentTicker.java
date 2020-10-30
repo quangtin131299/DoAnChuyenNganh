@@ -68,9 +68,6 @@ public class FragmentTicker extends Fragment {
                             ticker.setId(jsonArray.getJSONObject(i).getInt("ID"));
                             ticker.setDiachirap(jsonArray.getJSONObject(i).getString("DiaChi"));
                             ticker.setHinhphim(jsonArray.getJSONObject(i).getString("Hinh"));
-//                            SimpleDateFormat inputformat = new SimpleDateFormat("hh:mm:ss");
-//                            SimpleDateFormat outputformat = new SimpleDateFormat("hh:mm");
-//                            Date date = inputformat.parse(jsonArray.getJSONObject(i).getString("ThoiGian"));
                             ticker.setThoigianphim(jsonArray.getJSONObject(i).getString("ThoiGian"));
                             ticker.setTenphong(jsonArray.getJSONObject(i).getString("TenPhong"));
                             ticker.setGio(jsonArray.getJSONObject(i).getString("Gio"));

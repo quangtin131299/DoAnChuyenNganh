@@ -64,7 +64,7 @@ public class TickerAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder;
-        if(convertView == null){
+        if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.item_ticker, null);
             viewHolder = new ViewHolder();
             viewHolder.txtday = convertView.findViewById(R.id.txtday);
@@ -74,7 +74,7 @@ public class TickerAdapter extends BaseAdapter {
             viewHolder.txtTenPhim = convertView.findViewById(R.id.txtTenPhim);
             viewHolder.txtTenPhong = convertView.findViewById(R.id.txtTenPhong);
             convertView.setTag(viewHolder);
-        }else{
+        } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
         Ticker ticker = tickers.get(position);
@@ -83,20 +83,14 @@ public class TickerAdapter extends BaseAdapter {
         viewHolder.txtday.setText(ticker.getTenghe().charAt(0) + "");
         viewHolder.txtTenPhim.setText(ticker.getTenphim());
         viewHolder.txtTenPhong.setText(ticker.getTenphong());
-        DateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
-        DateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX", Locale.US);
-        try {
-            Date date = inputFormat.parse(ticker.getNgaydat());
-            viewHolder.txtNgayDatVaThoiGian.setText(simpleDateFormat.format(date) + " " + ticker.getGio());
-        } catch (ParseException e) {
-            e.printStackTrace();
-        };
+
+        viewHolder.txtNgayDatVaThoiGian.setText(ticker.getNgaydat() + " " + ticker.getGio());
 
 
         return convertView;
     }
 
-    public class ViewHolder{
-        TextView txtTenPhim, txtday,txtghe, txtTenrap, txtNgayDatVaThoiGian, txtTenPhong;
+    public class ViewHolder {
+        TextView txtTenPhim, txtday, txtghe, txtTenrap, txtNgayDatVaThoiGian, txtTenPhong;
     }
 }

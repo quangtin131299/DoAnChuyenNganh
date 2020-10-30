@@ -18,6 +18,7 @@ public class Util {
     public static final String LINK_LOADGHE = "http://192.168.1.3:3000/loadghe?rapphim=%d&idphim=%d&suatchieu=%s&ngaydathientai=%s";
     public static final String LINK_LOADPHONG = "http://192.168.1.3:3000/loadphong?suatchieu=%s&idphim=%d&idrap=%d&ngayhientai=%s";
     public static final String LINK_UPDATEUSER = "http://192.168.1.3:3000/capnhatthongtinkhach";
+    public static final String LINK_DATVE = "http://192.168.1.3:3000/datvephim?ngaydat=%s&idsuat=%d&idghe=%d&idphim=%d&idkhachhang=%d&idrap=%d&idhoadon=7&status=Đã đặt&idphong=%d";
 
     public static String getMd5(String input) {
         try {

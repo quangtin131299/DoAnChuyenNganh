@@ -14,6 +14,16 @@ public class TickerBook implements Serializable {
     private String trangthai;
     private String ngaydat;
 
+    private int idphong;
+
+    public int getIdphong() {
+        return idphong;
+    }
+
+    public void setIdphong(int idphong) {
+        this.idphong = idphong;
+    }
+
     public TickerBook() {
     }
 
@@ -101,18 +111,4 @@ public class TickerBook implements Serializable {
         this.ngaydat = ngaydat;
     }
 
-    @Override
-    public String toString() {
-        return "TickerBook{" +
-                "idtickerbook=" + idtickerbook +
-                ", idsuat=" + idsuat +
-                ", idghe=" + idghe +
-                ", idphim=" + idphim +
-                ", idkhachhang=" + idkhachhang +
-                ", idrap=" + idrap +
-                ", idhoadon=" + idhoadon +
-                ", trangthai='" + trangthai + '\'' +
-                ", ngaydat='" + ngaydat + '\'' +
-                '}';
-    }
 }

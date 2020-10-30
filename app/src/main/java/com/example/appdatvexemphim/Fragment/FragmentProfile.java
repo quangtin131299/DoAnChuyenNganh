@@ -17,12 +17,13 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.appdatvexemphim.Activity.LoginActivity;
+import com.example.appdatvexemphim.Activity.PasswordChangeActivity;
 import com.example.appdatvexemphim.Activity.UpdateUserActivity;
 import com.example.appdatvexemphim.R;
 
 public class FragmentProfile extends Fragment {
 
-    LinearLayout linearupdateuser;
+    LinearLayout linearupdateuser, linearupdatepass;
     TextView txtTennguoidung, txtdangxuatdangnhap;
     SharedPreferences sharedPreferences;
 
@@ -37,6 +38,13 @@ public class FragmentProfile extends Fragment {
     }
 
     private void addEvents() {
+        linearupdatepass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), PasswordChangeActivity.class);
+                startActivity(i);
+            }
+        });
         linearupdateuser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,6 +100,9 @@ public class FragmentProfile extends Fragment {
         txtdangxuatdangnhap = view.findViewById(R.id.txtdangxuatdangnhap);
         sharedPreferences = getActivity().getSharedPreferences("datalogin", Context.MODE_PRIVATE);
         linearupdateuser = view.findViewById(R.id.linearupdate);
+        linearupdatepass = view.findViewById(R.id.linearupdatepass);
+
+
     }
 
 }

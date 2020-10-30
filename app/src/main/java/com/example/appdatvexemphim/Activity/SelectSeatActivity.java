@@ -44,6 +44,7 @@ public class SelectSeatActivity extends AppCompatActivity {
     ImageView imgback;
     TickerBook tickerBook;
     Button btnthanhtoan;
+    Room room;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -71,7 +72,7 @@ public class SelectSeatActivity extends AppCompatActivity {
                     try {
                         jsonArray = new JSONArray(response);
                         JSONObject jsonObject = jsonArray.getJSONObject(0);
-                        Room room = new Room();
+                        room = new Room();
                         room.setId(jsonObject.getInt("ID"));
                         room.setTenphong(jsonObject.getString("TenPhong"));
                         room.setThoigian(jsonObject.getString("Gio"));
@@ -94,6 +95,7 @@ public class SelectSeatActivity extends AppCompatActivity {
     }
 
     private void updateRoom(Room room) {
+        tickerBook.setIdphong(room.getId());
         txtsophong.setText(room.getTenphong());
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
         SimpleDateFormat output = new SimpleDateFormat("HH:mm");
@@ -118,6 +120,7 @@ public class SelectSeatActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(SelectSeatActivity.this, PaymentActivity.class);
                 i.putExtra("TICKERBOOK", tickerBook);
+                i.putExtra("ID_PHONG", room.getId());
                 startActivity(i);
             }
         });

@@ -56,8 +56,8 @@ public class FragmentNearYou extends Fragment {
     private void addControls(View view) {
         rvMovie = view.findViewById(R.id.rvMovieNearYou);
         listMovieAdapter = new ListMovieAdapter(getActivity(), movies);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity().getApplicationContext(), 2);
-        rvMovie.setHasFixedSize(true);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity().getApplicationContext(), 2 );
+        rvMovie.setHasFixedSize(false);
         rvMovie.setLayoutManager(gridLayoutManager);
         rvMovie.setAdapter(listMovieAdapter);
 
@@ -89,7 +89,7 @@ public class FragmentNearYou extends Fragment {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.e("/////",error.toString());
+                Log.e("/////", error.toString());
             }
         });
 
