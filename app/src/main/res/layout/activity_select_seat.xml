@@ -27,11 +27,11 @@
             android:weightSum="10">
 
             <ImageView
-                android:padding="5dp"
                 android:id="@+id/imgback"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_weight="1.5"
+                android:padding="5dp"
                 android:scaleType="center"
                 android:src="@drawable/icon_back" />
 
@@ -113,84 +113,101 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1">
-
-                <TextView
-                    android:id="@+id/txttime"
-                    android:layout_width="79.99dp"
-                    android:layout_height="50dp"
-                    android:layout_marginLeft="22dp"
-                    android:background="@drawable/background_time_selectseat"
-                    android:gravity="center"
-                    android:text="19:00"
-                    android:textColor="#fff"
-                    android:textSize="15sp" />
+                android:layout_weight="1"
+                android:weightSum="10">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp">
-
-                    <ImageView
-                        android:padding="5dp"
-                        android:id="@+id/imgghe"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:src="@drawable/seatdadat" />
+                    android:orientation="horizontal"
+                    android:gravity="center_horizontal"
+                    android:layout_weight="3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
 
                     <TextView
+                        android:id="@+id/txttime"
+                        android:layout_width="79.99dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/background_time_selectseat"
+                        android:gravity="center"
+                        android:text="19:00"
+                        android:textColor="#fff"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_weight="7"
+                    android:layout_width="0dp"
+                    android:gravity="center_vertical"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical|end"
-                        android:text="BOOKED"
-                        android:textColor="#6D6D80"
-                        android:textSize="10sp" />
+                       >
+
+                        <ImageView
+                            android:id="@+id/imgghe"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:padding="5dp"
+                            android:src="@drawable/seatdadat" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical|end"
+                            android:text="BOOKED"
+                            android:textColor="#6D6D80"
+                            android:textSize="10sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        >
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:padding="5dp"
+                            android:src="@drawable/seattrong" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical|end"
+                            android:text="AVAILABLE"
+                            android:textColor="#6D6D80"
+                            android:textSize="10sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:padding="5dp"
+                            android:src="@drawable/seatchon" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical|end"
+                            android:text="SELETED"
+                            android:textColor="#6D6D80"
+                            android:textSize="10sp" />
+                    </LinearLayout>
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp">
-
-                    <ImageView
-                        android:padding="5dp"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:src="@drawable/seattrong" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical|end"
-                        android:text="AVAILABLE"
-                        android:textColor="#6D6D80"
-                        android:textSize="10sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp">
-
-                    <ImageView
-                        android:padding="5dp"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:src="@drawable/seatchon" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical|end"
-                        android:text="SELETED"
-                        android:textColor="#6D6D80"
-                        android:textSize="10sp" />
-                </LinearLayout>
 
             </LinearLayout>
 
@@ -529,36 +546,36 @@
                                 android:weightSum="10">
 
                                 <ImageView
-                                    android:tag="23"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="23" />
 
                                 <ImageView
-                                    android:tag="24"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="24" />
 
                                 <ImageView
-                                    android:tag="25"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="25" />
 
                                 <ImageView
-                                    android:tag="26"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="26" />
 
                             </LinearLayout>
 
@@ -570,36 +587,36 @@
                                 android:weightSum="10">
 
                                 <ImageView
-                                    android:tag="31"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="31" />
 
                                 <ImageView
-                                    android:tag="32"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="32" />
 
                                 <ImageView
-                                    android:tag="33"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="33" />
 
                                 <ImageView
-                                    android:tag="34"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="34" />
 
                             </LinearLayout>
 
@@ -611,36 +628,36 @@
                                 android:weightSum="10">
 
                                 <ImageView
-                                    android:tag="39"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="39" />
 
                                 <ImageView
-                                    android:tag="40"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="40" />
 
                                 <ImageView
-                                    android:tag="41"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="41" />
 
                                 <ImageView
-                                    android:tag="42"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="42" />
 
                             </LinearLayout>
 
@@ -669,36 +686,36 @@
                                 android:weightSum="10">
 
                                 <ImageView
-                                    android:tag="27"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="27" />
 
                                 <ImageView
-                                    android:tag="28"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="28" />
 
                                 <ImageView
-                                    android:tag="29"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="29" />
 
                                 <ImageView
-                                    android:tag="30"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="30" />
 
                             </LinearLayout>
 
@@ -710,36 +727,36 @@
                                 android:weightSum="10">
 
                                 <ImageView
-                                    android:tag="35"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="35" />
 
                                 <ImageView
-                                    android:tag="36"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="36" />
 
                                 <ImageView
-                                    android:tag="37"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="37" />
 
                                 <ImageView
-                                    android:tag="38"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="38" />
 
                             </LinearLayout>
 
@@ -751,36 +768,36 @@
                                 android:weightSum="10">
 
                                 <ImageView
-                                    android:tag="43"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="43" />
 
                                 <ImageView
-                                    android:tag="44"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="44" />
 
                                 <ImageView
-                                    android:tag="45"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="45" />
 
                                 <ImageView
-                                    android:tag="46"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="46" />
 
                             </LinearLayout>
 
@@ -817,36 +834,36 @@
                                 android:weightSum="10">
 
                                 <ImageView
-                                    android:tag="47"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="47" />
 
                                 <ImageView
-                                    android:tag="48"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="48" />
 
                                 <ImageView
-                                    android:tag="49"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="49" />
 
                                 <ImageView
-                                    android:tag="50"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="50" />
 
                             </LinearLayout>
 
@@ -858,36 +875,36 @@
                                 android:weightSum="10">
 
                                 <ImageView
-                                    android:tag="55"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="55" />
 
                                 <ImageView
-                                    android:tag="56"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="56" />
 
                                 <ImageView
-                                    android:tag="57"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="57" />
 
                                 <ImageView
-                                    android:tag="58"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="58" />
 
                             </LinearLayout>
 
@@ -899,36 +916,36 @@
                                 android:weightSum="10">
 
                                 <ImageView
-                                    android:tag="63"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="63" />
 
                                 <ImageView
-                                    android:tag="64"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="64" />
 
                                 <ImageView
-                                    android:tag="65"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="65" />
 
                                 <ImageView
-                                    android:tag="66"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="66" />
 
                             </LinearLayout>
                         </LinearLayout>
@@ -954,36 +971,36 @@
                                 android:weightSum="10">
 
                                 <ImageView
-                                    android:tag="51"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="51" />
 
                                 <ImageView
-                                    android:tag="52"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="52" />
 
                                 <ImageView
-                                    android:tag="53"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="53" />
 
                                 <ImageView
-                                    android:tag="54"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="54" />
 
                             </LinearLayout>
 
@@ -995,36 +1012,36 @@
                                 android:weightSum="10">
 
                                 <ImageView
-                                    android:tag="59"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="59" />
 
                                 <ImageView
-                                    android:tag="60"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="60" />
 
                                 <ImageView
-                                    android:tag="61"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="61" />
 
                                 <ImageView
-                                    android:tag="62"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="62" />
 
                             </LinearLayout>
 
@@ -1036,36 +1053,36 @@
                                 android:weightSum="10">
 
                                 <ImageView
-                                    android:tag="66"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="66" />
 
                                 <ImageView
-                                    android:tag="67"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="67" />
 
                                 <ImageView
-                                    android:tag="67"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="67" />
 
                                 <ImageView
-                                    android:tag="68"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2.5"
                                     android:padding="5dp"
-                                    android:src="@drawable/seattrong" />
+                                    android:src="@drawable/seattrong"
+                                    android:tag="68" />
 
                             </LinearLayout>
 

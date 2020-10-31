@@ -148,6 +148,7 @@ public class ChooseSessionActivity extends AppCompatActivity implements TimeAdap
                     intent.putExtra("NGAYDATHIENTAI", simpleDateFormat.format(Calendar.getInstance().getTime()));
                     intent.putExtra("TEN_PHIM", i1.getStringExtra("TEN_PHIM"));
                     intent.putExtra("TICKERBOOK", tickerBook);
+                    intent.putExtra("TEN_RAP", cinema.getTenrap());
                     startActivity(intent);
 
                 }

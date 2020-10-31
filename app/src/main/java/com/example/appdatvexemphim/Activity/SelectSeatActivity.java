@@ -61,7 +61,7 @@ public class SelectSeatActivity extends AppCompatActivity {
 
     private void loadDataPhong() {
         Intent i = getIntent();
-        if (i.hasExtra("ID_MOVIE") && i.hasExtra("NGAYDATHIENTAI") && i.hasExtra("SUATCHIEU") && i.hasExtra("ID_CINEMA")) {
+        if (i.hasExtra("ID_MOVIE") && i.hasExtra("NGAYDATHIENTAI") && i.hasExtra("SUATCHIEU") && i.hasExtra("ID_CINEMA") &&i.hasExtra("TEN_PHIM")) {
             tickerBook = (TickerBook) i.getSerializableExtra("TICKERBOOK");
             String url = String.format(Util.LINK_LOADPHONG, i.getStringExtra("SUATCHIEU"), i.getIntExtra("ID_MOVIE", 0), i.getIntExtra("ID_CINEMA", 0), i.getStringExtra("NGAYDATHIENTAI"));
             RequestQueue requestQueue = Volley.newRequestQueue(SelectSeatActivity.this);
@@ -91,6 +91,7 @@ public class SelectSeatActivity extends AppCompatActivity {
             });
             requestQueue.add(stringRequest);
         }
+        txttenphim.setText(i.getStringExtra("TEN_PHIM"));
 
     }
 
@@ -118,9 +119,12 @@ public class SelectSeatActivity extends AppCompatActivity {
         btnthanhtoan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent temp = getIntent();
                 Intent i = new Intent(SelectSeatActivity.this, PaymentActivity.class);
                 i.putExtra("TICKERBOOK", tickerBook);
                 i.putExtra("ID_PHONG", room.getId());
+                i.putExtra("TEN_PHIM", temp.getStringExtra("TEN_PHIM"));
+                i.putExtra("TEN_RAP", temp.getStringExtra("TEN_RAP"));
                 startActivity(i);
             }
         });
@@ -233,7 +237,5 @@ public class SelectSeatActivity extends AppCompatActivity {
 
             }
         }
-
-
     }
 }
