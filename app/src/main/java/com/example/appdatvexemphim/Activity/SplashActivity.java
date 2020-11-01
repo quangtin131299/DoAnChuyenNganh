@@ -19,7 +19,7 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        ProgressBar progressBar = (ProgressBar)findViewById(R.id.progress);
+        ProgressBar progressBar = (ProgressBar) findViewById(R.id.progress);
         Sprite doubleBounce = new RotatingCircle();
         progressBar.setIndeterminateDrawable(doubleBounce);
 
@@ -27,7 +27,7 @@ public class SplashActivity extends AppCompatActivity {
     }
 
 
-    class PrefetchData extends AsyncTask<Void, Void, Void>{
+    class PrefetchData extends AsyncTask<Void, Void, Void> {
 
         @Override
         protected Void doInBackground(Void... voids) {
@@ -42,12 +42,12 @@ public class SplashActivity extends AppCompatActivity {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
+
                     Intent i = new Intent(SplashActivity.this, HomeActivity.class);
                     startActivity(i);
+                    finish();
                 }
-            },2000);
-
-            finish();
+            }, 2000);
         }
     }
 }

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:weightSum="10"
+    android:layout_height="match_parent"
     android:background="@color/colorBackround"
-    android:layout_height="match_parent">
+    android:orientation="vertical"
+    android:weightSum="10">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,19 +26,25 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_weight="9"
         android:layout_width="match_parent"
-        android:layout_height="0dp">
+        android:layout_height="0dp"
+        android:layout_weight="9">
 
-        <ListView
-
-            android:id="@+id/lvTicker"
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/refeslayoutticker"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent">
+
+            <ListView
+                android:id="@+id/lvTicker"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 
     </LinearLayout>
-
 
 
 </LinearLayout>

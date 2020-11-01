@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -39,6 +40,7 @@ public class PaymentActivity extends AppCompatActivity {
     TickerBook tickerBook;
     EditText edttenkhachhang, edtsodienthoai;
     Button btnthanhtoan;
+    ImageView imgback;
 
     private String amount = "45000";
     private String fee = "0";
@@ -58,13 +60,13 @@ public class PaymentActivity extends AppCompatActivity {
         addControls();
         updateUI();
         addEvents();
-//        xulyDatVe();
+
     }
 
     private void addControls() {
         btnthanhtoan = findViewById(R.id.btnthanhtoan);
         edttenkhachhang = findViewById(R.id.edttenkhachhang);
-
+        imgback = findViewById(R.id.imgback);
     }
 
     private void addEvents() {
@@ -72,6 +74,13 @@ public class PaymentActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 requestPayment();
+//                xulyDatVe();
+            }
+        });
+        imgback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }
@@ -83,29 +92,37 @@ public class PaymentActivity extends AppCompatActivity {
 
     private void xulyDatVe() {
         Intent intent = getIntent();
-        if (intent.hasExtra("TICKERBOOK") && intent.hasExtra("ID_PHONG")) {
+        if (intent.hasExtra("TICKERBOOK")) {
             tickerBook = (TickerBook) intent.getSerializableExtra("TICKERBOOK");
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-            Calendar calendar = Calendar.getInstance();
-            String url = String.format(Util.LINK_DATVE, simpleDateFormat.format(calendar.getTime()), tickerBook.getIdsuat(), tickerBook.getIdghe(), tickerBook.getIdphim(), tickerBook.getIdkhachhang(), tickerBook.getIdrap(), intent.getIntExtra("ID_PHONG", 0));
-            Log.d("//////", url);
-            RequestQueue requestQueue = Volley.newRequestQueue(PaymentActivity.this);
-            StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
-                @Override
-                public void onResponse(String response) {
-                    if (response != null) {
-                        AlertDialog.Builder builder = new AlertDialog.Builder(PaymentActivity.this).setMessage(response);
-                        builder.show();
+            if (tickerBook.getIdghe() != 0 && tickerBook.getIdkhachhang() != 0 && tickerBook.getIdphong() != 0 && tickerBook.getNgaydat() != "") {
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                Calendar calendar = Calendar.getInstance();
+                String url = String.format(Util.LINK_DATVE, simpleDateFormat.format(calendar.getTime())
+                        , tickerBook.getIdsuat()
+                        , tickerBook.getIdghe()
+                        , tickerBook.getIdphim()
+                        , tickerBook.getIdkhachhang()
+                        , tickerBook.getIdrap()
+                        ,"Đã đặt",tickerBook.getIdphong());
+                RequestQueue requestQueue = Volley.newRequestQueue(PaymentActivity.this);
+                StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        if (response != null) {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(PaymentActivity.this).setMessage(response);
+                            builder.show();
+                        }
+
                     }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
 
-                }
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
+                    }
+                });
+                requestQueue.add(stringRequest);
+            }
 
-                }
-            });
-            requestQueue.add(stringRequest);
         }
 
 
@@ -119,6 +136,7 @@ public class PaymentActivity extends AppCompatActivity {
             if (data != null) {
                 if (data.getIntExtra("status", -1) == 0) {
                     //TOKEN IS AVAILABLE
+                    xulyDatVe();
                     Toast.makeText(PaymentActivity.this, "Thanh toán thành công", Toast.LENGTH_SHORT).show();
                     String token = data.getStringExtra("data"); //Token response
                     String phoneNumber = data.getStringExtra("phonenumber");

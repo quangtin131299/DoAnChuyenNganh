@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackround"
-
     android:orientation="vertical"
     android:weightSum="10">
 
@@ -30,7 +29,7 @@
             android:layout_height="match_parent"
             android:layout_weight="8.5"
             android:gravity="center"
-            android:text="Thanh toán"
+            android:text="Chi tiết vé"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -53,6 +52,7 @@
             android:weightSum="10">
 
             <ImageView
+                android:padding="10dp"
                 android:id="@+id/imgqr"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -115,10 +115,10 @@
             <ImageView
                 android:id="@+id/imgphim"
                 android:layout_width="0dp"
-
+                android:src="@mipmap/ic_launcher_round"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:scaleType="fitXY" />
+                android:scaleType="fitCenter" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -134,7 +134,7 @@
                     android:layout_marginLeft="5dp"
                     android:text="Wonder Woman 1984"
                     android:textColor="#E7E7E7"
-                    android:textSize="30sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/txtthoigian"
@@ -197,7 +197,7 @@
                     android:layout_marginBottom="2dp"
                     android:text="Ngày &amp; giờ"
                     android:textColor="#707070"
-                    android:textSize="10sp" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/txtngaygio"
@@ -270,7 +270,7 @@
                     android:layout_marginLeft="5dp"
                     android:text="Wonder Woman 1984"
                     android:textColor="#E7E7E7"
-                    android:textSize="20sp" />
+                    android:textSize="15sp" />
 
 
             </LinearLayout>
@@ -334,7 +334,7 @@
                     android:layout_marginLeft="5dp"
                     android:text="Wonder Woman 1984"
                     android:textColor="#E7E7E7"
-                    android:textSize="20sp" />
+                    android:textSize="15sp" />
 
 
             </LinearLayout>
@@ -398,7 +398,7 @@
                     android:layout_marginLeft="5dp"
                     android:text="Wonder Woman 1984"
                     android:textColor="#E7E7E7"
-                    android:textSize="20sp" />
+                    android:textSize="15sp" />
 
 
             </LinearLayout>

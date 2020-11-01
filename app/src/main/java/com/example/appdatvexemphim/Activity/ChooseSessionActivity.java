@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -59,6 +60,7 @@ public class ChooseSessionActivity extends AppCompatActivity implements TimeAdap
     TickerBook tickerBook = new TickerBook();
 
     SharedPreferences sharedPreferences;
+
 
 
     XuatChieu xctemp;
@@ -131,7 +133,7 @@ public class ChooseSessionActivity extends AppCompatActivity implements TimeAdap
                         intent.putExtra("SUATCHIEU", xctemp.getThoigian());
                     }
                     intent.putExtra("ID_MOVIE", i1.getIntExtra("ID_MOVIE", 0));
-                    tickerBook.setIdphim(cinema.getId());
+                    tickerBook.setIdphim(i1.getIntExtra("ID_MOVIE", 0));
                     SimpleDateFormat formatngaydat = new SimpleDateFormat("dd/MM/yyyy");
                     SimpleDateFormat outputformatngaydat = new SimpleDateFormat("yyyy-MM-dd");
                     try {
@@ -264,8 +266,10 @@ public class ChooseSessionActivity extends AppCompatActivity implements TimeAdap
     }
 
     @Override
-    public void onClicked(int position) {
+    public void onClicked(int position, View view) {
         xctemp = xuatChieus.get(position);
+        Toast.makeText(ChooseSessionActivity.this, xctemp.getThoigian(), Toast.LENGTH_SHORT).show();
         tickerBook.setIdsuat(xctemp.getId());
+
     }
 }

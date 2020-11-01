@@ -62,7 +62,7 @@ public class RapAdapter extends BaseAdapter {
             viewHolder.setTvtenrap((TextView) convertView.findViewById(R.id.tvtenrap));
             viewHolder.setImageView((ImageView) convertView.findViewById(R.id.imgcinema));
             convertView.setTag(viewHolder);
-            Log.d("CCCCCCCC///", String.valueOf(parent.getId()) + "   " + R.id.spinner);
+
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }

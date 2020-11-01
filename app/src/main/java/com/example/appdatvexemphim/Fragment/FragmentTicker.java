@@ -14,6 +14,7 @@ import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -37,6 +38,7 @@ import java.util.Date;
 
 public class FragmentTicker extends Fragment {
 
+    SwipeRefreshLayout refeslayoutticker;
     ListView lvticker;
     TickerAdapter tickerAdapter;
     SharedPreferences sharedPreferences;
@@ -97,6 +99,15 @@ public class FragmentTicker extends Fragment {
     }
 
     private void addEvents() {
+        refeslayoutticker.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                tickers.clear();
+                tickerAdapter.notifyDataSetChanged();
+                loadDSVe();
+                refeslayoutticker.setRefreshing(false);
+            }
+        });
         lvticker.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -109,6 +120,7 @@ public class FragmentTicker extends Fragment {
     }
 
     private void addControls(View view) {
+        refeslayoutticker = view.findViewById(R.id.refeslayoutticker);
         lvticker = view.findViewById(R.id.lvTicker);
         tickers = new ArrayList<>();
         tickerAdapter = new TickerAdapter(getActivity(), tickers);

@@ -91,7 +91,6 @@ public class ListMovieAdapter extends RecyclerView.Adapter<ListMovieAdapter.View
                 @Override
                 public void onClick(View v) {
                      Movie movie = arrMovie.get(getLayoutPosition());
-                    Log.d("///////", String.valueOf(movie.getId()));
                     Intent intent = new Intent(context, DetalsMovieActivity.class);
                     intent.putExtra("ID_MOVIE", movie.getId());
                     context.startActivity(intent);

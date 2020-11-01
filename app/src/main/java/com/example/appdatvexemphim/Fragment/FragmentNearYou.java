@@ -13,7 +13,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -34,6 +36,7 @@ import java.util.ArrayList;
 
 public class FragmentNearYou extends Fragment {
 
+    SwipeRefreshLayout refeshmovienearyou;
     RecyclerView rvMovie;
     ListMovieAdapter listMovieAdapter;
     ArrayList<Movie> movies = new ArrayList<>();
@@ -50,16 +53,23 @@ public class FragmentNearYou extends Fragment {
     }
 
     private void addEvents() {
-
+        refeshmovienearyou.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                loadDataPhimDangChieu();
+                refeshmovienearyou.setRefreshing(false);
+            }
+        });
     }
 
     private void addControls(View view) {
         rvMovie = view.findViewById(R.id.rvMovieNearYou);
         listMovieAdapter = new ListMovieAdapter(getActivity(), movies);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity().getApplicationContext(), 2 );
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity().getApplicationContext(), 2);
         rvMovie.setHasFixedSize(false);
         rvMovie.setLayoutManager(gridLayoutManager);
         rvMovie.setAdapter(listMovieAdapter);
+        refeshmovienearyou = view.findViewById(R.id.refeshmovienearyou);
 
     }
 
@@ -92,6 +102,7 @@ public class FragmentNearYou extends Fragment {
                 Log.e("/////", error.toString());
             }
         });
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(5000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 
         requestQueue.add(stringRequest);
     }

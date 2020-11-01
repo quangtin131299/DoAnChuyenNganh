@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -60,19 +61,21 @@ public class TimeAdapter extends RecyclerView.Adapter<TimeAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView txtthoigian;
+        LinearLayout linearbackground;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             txtthoigian = itemView.findViewById(R.id.txtthoigian);
+            linearbackground = itemView.findViewById(R.id.linearbackground);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    onClickListenerRecyclerView.onClicked(getLayoutPosition());
+                    onClickListenerRecyclerView.onClicked(getLayoutPosition(), linearbackground);
                 }
             });
         }
     }
 
     public interface onClickListenerRecyclerView{
-        void onClicked(int position);
+        void onClicked(int position, View view);
     }
 }

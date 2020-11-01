@@ -1,5 +1,7 @@
 package com.example.appdatvexemphim.Activity;
 
+import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,6 +15,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -61,7 +64,7 @@ public class SelectSeatActivity extends AppCompatActivity {
 
     private void loadDataPhong() {
         Intent i = getIntent();
-        if (i.hasExtra("ID_MOVIE") && i.hasExtra("NGAYDATHIENTAI") && i.hasExtra("SUATCHIEU") && i.hasExtra("ID_CINEMA") &&i.hasExtra("TEN_PHIM")) {
+        if (i.hasExtra("ID_MOVIE") && i.hasExtra("NGAYDATHIENTAI") && i.hasExtra("SUATCHIEU") && i.hasExtra("ID_CINEMA") && i.hasExtra("TEN_PHIM")) {
             tickerBook = (TickerBook) i.getSerializableExtra("TICKERBOOK");
             String url = String.format(Util.LINK_LOADPHONG, i.getStringExtra("SUATCHIEU"), i.getIntExtra("ID_MOVIE", 0), i.getIntExtra("ID_CINEMA", 0), i.getStringExtra("NGAYDATHIENTAI"));
             RequestQueue requestQueue = Volley.newRequestQueue(SelectSeatActivity.this);
@@ -89,6 +92,7 @@ public class SelectSeatActivity extends AppCompatActivity {
 
                 }
             });
+            stringRequest.setRetryPolicy(new DefaultRetryPolicy(5000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
             requestQueue.add(stringRequest);
         }
         txttenphim.setText(i.getStringExtra("TEN_PHIM"));
@@ -119,13 +123,24 @@ public class SelectSeatActivity extends AppCompatActivity {
         btnthanhtoan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent temp = getIntent();
-                Intent i = new Intent(SelectSeatActivity.this, PaymentActivity.class);
-                i.putExtra("TICKERBOOK", tickerBook);
-                i.putExtra("ID_PHONG", room.getId());
-                i.putExtra("TEN_PHIM", temp.getStringExtra("TEN_PHIM"));
-                i.putExtra("TEN_RAP", temp.getStringExtra("TEN_RAP"));
-                startActivity(i);
+                if (tickerBook.getIdghe() == 0) {
+                    Intent temp = getIntent();
+                    Intent i = new Intent(SelectSeatActivity.this, PaymentActivity.class);
+                    if (room != null) {
+                        i.putExtra("ID_PHONG", room.getId());
+                        tickerBook.setIdphong(room.getId());
+                    }
+                    i.putExtra("TICKERBOOK", tickerBook);
+
+                    i.putExtra("TEN_PHIM", temp.getStringExtra("TEN_PHIM"));
+                    i.putExtra("TEN_RAP", temp.getStringExtra("TEN_RAP"));
+                    startActivity(i);
+                }else{
+                    AlertDialog.Builder builder = new AlertDialog.Builder(SelectSeatActivity.this);
+                    builder.setMessage("Mời bạn chọn ghế");
+                    builder.show();
+                }
+
             }
         });
     }
@@ -138,8 +153,8 @@ public class SelectSeatActivity extends AppCompatActivity {
                     for (int k = 0; k < linearLayout.getChildCount(); k++) {
                         Seat tempseat = seats.get(l);
                         ImageView tempimage = (ImageView) linearLayout.getChildAt(k);
-                        if(tempimage.getTag() != null){
-                            if(tempseat.getId() == Integer.parseInt(String.valueOf(tempimage.getTag()))){
+                        if (tempimage.getTag() != null) {
+                            if (tempseat.getId() == Integer.parseInt(String.valueOf(tempimage.getTag()))) {
                                 tempimage.setImageResource(R.drawable.seatdadat);
                             }
                         }
@@ -187,6 +202,7 @@ public class SelectSeatActivity extends AppCompatActivity {
 
             }
         });
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(5000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 
         requestQueue.add(stringRequest);
 
@@ -225,6 +241,8 @@ public class SelectSeatActivity extends AppCompatActivity {
                             if (imageView1.getDrawable().getConstantState() == getResources().getDrawable(R.drawable.seattrong).getConstantState()) {
                                 imageView1.setImageResource(R.drawable.seatchon);
                                 tickerBook.setIdghe(Integer.parseInt((String) imageView1.getTag()));
+                            } else if (imageView1.getDrawable().getConstantState() == getResources().getDrawable(R.drawable.seatdadat).getConstantState()) {
+                                Toast.makeText(SelectSeatActivity.this, "Ghế đã đặt rồi", Toast.LENGTH_SHORT).show();
                             } else {
                                 imageView1.setImageResource(R.drawable.seattrong);
                                 tickerBook.setIdghe(0);

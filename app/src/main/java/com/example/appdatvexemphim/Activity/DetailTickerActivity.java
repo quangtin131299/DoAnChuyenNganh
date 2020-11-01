@@ -58,7 +58,7 @@ public class DetailTickerActivity extends AppCompatActivity {
             String data = ticker.getId() + "";
             BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
             try {
-                Bitmap bitmap = barcodeEncoder.encodeBitmap(data, BarcodeFormat.QR_CODE, 300, 300);
+                Bitmap bitmap = barcodeEncoder.encodeBitmap(data, BarcodeFormat.QR_CODE, 250, 250);
                 imgqr.setImageBitmap(bitmap);
             } catch (WriterException e) {
                 e.printStackTrace();

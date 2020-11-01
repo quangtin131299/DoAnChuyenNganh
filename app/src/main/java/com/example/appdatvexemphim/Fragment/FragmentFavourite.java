@@ -64,7 +64,7 @@ public class FragmentFavourite extends Fragment {
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                if(response != null){
+                if(response != null || response.equals("") == false){
                     try {
                         JSONArray jsonArray = new JSONArray(response);
                         for(int i = 0; i < jsonArray.length(); i++){
