@@ -251,8 +251,6 @@ public class ChooseSessionActivity extends AppCompatActivity implements TimeAdap
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-
-
                 }
             }
         }, new Response.ErrorListener() {

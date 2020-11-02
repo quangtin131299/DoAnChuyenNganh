@@ -9,6 +9,8 @@ public class Movie {
     private String hinh;
     private String status;
 
+
+
     public int getId() {
         return id;
     }
@@ -17,12 +19,13 @@ public class Movie {
         this.id = id;
     }
 
-    public Movie(String tenphim, int thoigian, String hinh) {
+    public Movie(int id, String tenphim, int thoigian, String hinh, String status) {
+        this.id = id;
         this.tenphim = tenphim;
         this.thoigian = thoigian;
         this.hinh = hinh;
+        this.status = status;
     }
-
 
     public String getTenphim() {
         return tenphim;

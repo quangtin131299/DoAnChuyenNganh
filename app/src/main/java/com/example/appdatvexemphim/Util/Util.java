@@ -6,19 +6,19 @@ import java.security.NoSuchAlgorithmException;
 
 public class Util {
 
-    public static final String LINK_LOGIN = "http://192.168.1.5:3000/login";
-    public static final String LINK_REGISTER = "http://192.168.1.5:3000/register";
-    public static final String LINK_LOADPHIMDANGCHIEU = "http://192.168.1.5:3000/loadphimdangchieu";
-    public static final String LINK_LOADPHIMSAPCHIEU = "http://192.168.1.5:3000/loadphimsapchieu";
-    public static final String LINK_LOADRAPPHIM = "http://192.168.1.5:3000/loadrapphim";
-    public static final String LINK_MOVIEFAVOURITE = "http://192.168.1.5:3000/loadphimyeuthich";
-    public static final String LINK_MOVIEDETAIL = "http://192.168.1.5:3000/loadchitietphim?idmovie=%d";
-    public static final String LINK_LOADSUATCHIEUTHEORAP = "http://192.168.1.5:3000/loadxuatchieu?idrap=%d&idphim=%d&ngayhientai=%s";
-    public static final String LINK_LOADDSVE = "http://192.168.1.5:3000/loadve?iduser=%d";
-    public static final String LINK_LOADGHE = "http://192.168.1.5:3000/loadghe?rapphim=%d&idphim=%d&suatchieu=%s&ngaydathientai=%s";
-    public static final String LINK_LOADPHONG = "http://192.168.1.5:3000/loadphong?suatchieu=%s&idphim=%d&idrap=%d&ngayhientai=%s";
-    public static final String LINK_UPDATEUSER = "http://192.168.1.5:3000/capnhatthongtinkhach";
-    public static final String LINK_DATVE = "http://192.168.1.5:3000/datvephim?ngaydat=%s&idsuat=%d&idghe=%d&idphim=%d&idkhachhang=%d&idrap=%d&&status=%s&idphong=%d";
+    public static final String LINK_LOGIN = "https://serverappdatve.herokuapp.com/login";
+    public static final String LINK_REGISTER = "https://serverappdatve.herokuapp.com/register";
+    public static final String LINK_LOADPHIMDANGCHIEU = "https://serverappdatve.herokuapp.com/loadphimdangchieu";
+    public static final String LINK_LOADPHIMSAPCHIEU = "https://serverappdatve.herokuapp.com/loadphimsapchieu";
+    public static final String LINK_LOADRAPPHIM = "https://serverappdatve.herokuapp.com/loadrapphim";
+    public static final String LINK_MOVIEFAVOURITE = "https://serverappdatve.herokuapp.com/loadphimyeuthich";
+    public static final String LINK_MOVIEDETAIL = "https://serverappdatve.herokuapp.com/loadchitietphim?idmovie=%d";
+    public static final String LINK_LOADSUATCHIEUTHEORAP = "https://serverappdatve.herokuapp.com/loadxuatchieu?idrap=%d&idphim=%d&ngayhientai=%s";
+    public static final String LINK_LOADDSVE = "https://serverappdatve.herokuapp.com/loadve?iduser=%d";
+    public static final String LINK_LOADGHE = "https://serverappdatve.herokuapp.com/loadghe?rapphim=%d&idphim=%d&suatchieu=%s&ngaydathientai=%s";
+    public static final String LINK_LOADPHONG = "https://serverappdatve.herokuapp.com/loadphong?suatchieu=%s&idphim=%d&idrap=%d&ngayhientai=%s";
+    public static final String LINK_UPDATEUSER = "https://serverappdatve.herokuapp.com/capnhatthongtinkhach";
+    public static final String LINK_DATVE = "https://serverappdatve.herokuapp.com/datvephim?ngaydat=%s&idsuat=%d&idghe=%d&idphim=%d&idkhachhang=%d&idrap=%d&&status=%s&idphong=%d";
 
     public static String getMd5(String input) {
         try {

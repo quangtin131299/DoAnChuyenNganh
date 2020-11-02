@@ -48,13 +48,13 @@
             android:textColor="#E7E7E7"
             android:textSize="12.5sp" />
 
-        <TextView
+        <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+            android:id="@+id/youtube_player_view"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="3.9"
-            android:text="YouTuBeAPI"
-            android:textColor="#E7E7E7"
-            android:textSize="20sp" />
+            app:showFullScreenButton="false" />
+
 
     </LinearLayout>
 

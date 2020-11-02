@@ -123,7 +123,7 @@ public class SelectSeatActivity extends AppCompatActivity {
         btnthanhtoan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (tickerBook.getIdghe() == 0) {
+                if (tickerBook.getIdghe() != 0) {
                     Intent temp = getIntent();
                     Intent i = new Intent(SelectSeatActivity.this, PaymentActivity.class);
                     if (room != null) {
@@ -135,7 +135,7 @@ public class SelectSeatActivity extends AppCompatActivity {
                     i.putExtra("TEN_PHIM", temp.getStringExtra("TEN_PHIM"));
                     i.putExtra("TEN_RAP", temp.getStringExtra("TEN_RAP"));
                     startActivity(i);
-                }else{
+                } else {
                     AlertDialog.Builder builder = new AlertDialog.Builder(SelectSeatActivity.this);
                     builder.setMessage("Mời bạn chọn ghế");
                     builder.show();

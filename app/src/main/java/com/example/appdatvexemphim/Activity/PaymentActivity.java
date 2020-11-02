@@ -111,6 +111,7 @@ public class PaymentActivity extends AppCompatActivity {
                         if (response != null) {
                             AlertDialog.Builder builder = new AlertDialog.Builder(PaymentActivity.this).setMessage(response);
                             builder.show();
+                            finish();
                         }
 
                     }

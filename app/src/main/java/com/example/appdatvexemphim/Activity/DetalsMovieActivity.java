@@ -28,6 +28,9 @@ import com.example.appdatvexemphim.DTO.Movie;
 import com.example.appdatvexemphim.DTO.MovieDetail;
 import com.example.appdatvexemphim.R;
 import com.example.appdatvexemphim.Util.Util;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
@@ -51,12 +54,14 @@ public class DetalsMovieActivity extends AppCompatActivity {
     TextView txttenphim, txtmota;
     Button btnhuy, btndatve;
     SharedPreferences sharedPreferences;
+    YouTubePlayerView youTubePlayerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detals_movie);
         addControls();
+        getLifecycle().addObserver(youTubePlayerView);
         addEvents();
         loadDetailMovie();
 
@@ -73,7 +78,7 @@ public class DetalsMovieActivity extends AppCompatActivity {
                     if (response != null) {
                         try {
                             JSONArray jsonArray = new JSONArray(response);
-                            MovieDetail movieDetail = new MovieDetail();
+                            final MovieDetail movieDetail = new MovieDetail();
                             movieDetail.setId(jsonArray.getJSONObject(0).getInt("ID"));
                             movieDetail.setTenphim(jsonArray.getJSONObject(0).getString("TenPhim"));
                             movieDetail.setHinh(jsonArray.getJSONObject(0).getString("Hinh"));
@@ -81,6 +86,15 @@ public class DetalsMovieActivity extends AppCompatActivity {
                             movieDetail.setMota(jsonArray.getJSONObject(0).getString("MoTa"));
                             movieDetail.setThoigian(jsonArray.getJSONObject(0).getInt("ThoiGian"));
                             movieDetail.setNgaykhoichieu(jsonArray.getJSONObject(0).getString("NgayKhoiChieu"));
+                            movieDetail.setTrailer(jsonArray.getJSONObject(0).getString("Trailer"));
+                            youTubePlayerView.addYouTubePlayerListener(new AbstractYouTubePlayerListener() {
+                                @Override
+                                public void onReady(YouTubePlayer youTubePlayer) {
+                                    String idmovie = movieDetail.getTrailer();
+                                    youTubePlayer.loadVideo(idmovie, 0);
+
+                                }
+                            });
                             updateUI(movieDetail);
 
                         } catch (JSONException e) {
@@ -162,6 +176,8 @@ public class DetalsMovieActivity extends AppCompatActivity {
         btnhuy = findViewById(R.id.btnhuy);
         btndatve = findViewById(R.id.btndatve);
         sharedPreferences = getSharedPreferences("datalogin", Context.MODE_PRIVATE);
+        youTubePlayerView = findViewById(R.id.youtube_player_view);
+
     }
 
     public int ktdangnhap() {

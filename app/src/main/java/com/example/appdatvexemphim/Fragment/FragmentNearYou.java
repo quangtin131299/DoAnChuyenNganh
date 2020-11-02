@@ -1,7 +1,5 @@
 package com.example.appdatvexemphim.Fragment;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -20,10 +18,8 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.appdatvexemphim.Activity.DetalsMovieActivity;
 import com.example.appdatvexemphim.Adapter.ListMovieAdapter;
 import com.example.appdatvexemphim.DTO.Movie;
 import com.example.appdatvexemphim.R;
@@ -56,6 +52,8 @@ public class FragmentNearYou extends Fragment {
         refeshmovienearyou.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+                movies.clear();
+                listMovieAdapter.notifyDataSetChanged();
                 loadDataPhimDangChieu();
                 refeshmovienearyou.setRefreshing(false);
             }

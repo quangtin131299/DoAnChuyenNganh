@@ -10,6 +10,15 @@ public class MovieDetail {
     private String hinh;
     private String tenloai;
     private String ngaykhoichieu;
+    private String trailer;
+
+    public String getTrailer() {
+        return trailer;
+    }
+
+    public void setTrailer(String trailer) {
+        this.trailer = trailer;
+    }
 
     public MovieDetail() {
     }
@@ -22,13 +31,15 @@ public class MovieDetail {
         this.thoigian = thoigian;
     }
 
-    public MovieDetail(int id, String tenphim, String mota, String hinh, String tenloai, String ngaykhoichieu) {
+    public MovieDetail(int id, String tenphim, int thoigian, String mota, String hinh, String tenloai, String ngaykhoichieu, String trailer) {
         this.id = id;
         this.tenphim = tenphim;
+        this.thoigian = thoigian;
         this.mota = mota;
         this.hinh = hinh;
         this.tenloai = tenloai;
         this.ngaykhoichieu = ngaykhoichieu;
+        this.trailer = trailer;
     }
 
     public int getId() {
