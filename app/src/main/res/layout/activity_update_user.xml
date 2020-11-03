@@ -79,7 +79,7 @@
             android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_weight="8"
+                android:layout_weight="8.5"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -99,9 +99,10 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
+                android:background="@drawable/ic_date"
                 android:id="@+id/btnngay"
                 android:layout_marginRight="5dp"
-                android:layout_weight="2"
+                android:layout_weight="1.5"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"/>
 

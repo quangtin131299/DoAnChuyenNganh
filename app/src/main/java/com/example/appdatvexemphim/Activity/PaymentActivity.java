@@ -74,7 +74,6 @@ public class PaymentActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 requestPayment();
-//                xulyDatVe();
             }
         });
         imgback.setOnClickListener(new View.OnClickListener() {
@@ -111,7 +110,8 @@ public class PaymentActivity extends AppCompatActivity {
                         if (response != null) {
                             AlertDialog.Builder builder = new AlertDialog.Builder(PaymentActivity.this).setMessage(response);
                             builder.show();
-                            finish();
+                            Intent i = new Intent(PaymentActivity.this, HomeActivity.class);
+                            startActivity(i);
                         }
 
                     }
