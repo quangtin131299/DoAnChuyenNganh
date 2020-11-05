@@ -19,6 +19,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -65,9 +66,9 @@ public class FragmentLoginInfo extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(s.toString().equals("")){
+                if (s.toString().equals("")) {
                     editlayouttk.setError("Bắt buộc phải nhập");
-                }else{
+                } else {
                     editlayouttk.setError(null);
                 }
             }
@@ -85,9 +86,9 @@ public class FragmentLoginInfo extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(s.toString().equals("")){
+                if (s.toString().equals("")) {
                     editlayoutmk.setError("Bắt buộc phải nhập pass");
-                }else{
+                } else {
                     editlayoutmk.setError(null);
                 }
             }
@@ -162,7 +163,7 @@ public class FragmentLoginInfo extends Fragment {
                 return maps;
             }
         };
-
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(2000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         requestQueue.add(stringRequest);
     }
 
