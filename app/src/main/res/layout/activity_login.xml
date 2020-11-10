@@ -31,7 +31,7 @@
     <fragment
         android:id="@+id/ABC"
         android:layout_weight="3.7"
-        android:name="com.example.appdatvexemphim.Fragment.FragmentLoginInfo"
+        android:name="com.ngolamquangtin.appdatvexemphim.Fragment.FragmentLoginInfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

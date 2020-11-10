@@ -36,7 +36,7 @@
 
         <fragment
             android:id="@+id/ABC"
-            android:name="com.example.appdatvexemphim.Fragment.FragmentCreatAccount"
+            android:name="com.ngolamquangtin.appdatvexemphim.Fragment.FragmentCreatAccount"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

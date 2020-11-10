@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.appdatvexemphim">
+    package="com.ngolamquangtin.appdatvexemphim">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -14,38 +14,38 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="false">
         <activity
-            android:name=".Activity.PasswordChangeActivity"
+            android:name="com.ngolamquangtin.appdatvexemphim.Activity.PasswordChangeActivity"
             android:screenOrientation="locked"></activity>
         <activity
-            android:name=".Activity.ForgotPasswordActivity"
+            android:name="com.ngolamquangtin.appdatvexemphim.Activity.ForgotPasswordActivity"
             android:screenOrientation="locked" />
         <activity
-            android:name=".Activity.UpdateUserActivity"
+            android:name="com.ngolamquangtin.appdatvexemphim.Activity.UpdateUserActivity"
             android:screenOrientation="locked" />
         <activity
-            android:name=".Activity.PaymentActivity"
+            android:name="com.ngolamquangtin.appdatvexemphim.Activity.PaymentActivity"
             android:screenOrientation="locked" />
         <activity
-            android:name=".Activity.DetailTickerActivity"
+            android:name="com.ngolamquangtin.appdatvexemphim.Activity.DetailTickerActivity"
             android:screenOrientation="locked" />
         <activity
-            android:name=".Activity.SelectSeatActivity"
+            android:name="com.ngolamquangtin.appdatvexemphim.Activity.SelectSeatActivity"
             android:screenOrientation="locked" />
         <activity
-            android:name=".Activity.ChooseSessionActivity"
+            android:name="com.ngolamquangtin.appdatvexemphim.Activity.ChooseSessionActivity"
             android:screenOrientation="locked" />
-        <activity android:name=".Activity.DetalsMovieActivity" />
+        <activity android:name="com.ngolamquangtin.appdatvexemphim.Activity.DetalsMovieActivity" />
         <activity
-            android:name=".Activity.CreateAccountActivity"
-            android:screenOrientation="locked" />
-        <activity
-            android:name=".Activity.LoginActivity"
+            android:name="com.ngolamquangtin.appdatvexemphim.Activity.CreateAccountActivity"
             android:screenOrientation="locked" />
         <activity
-            android:name=".Activity.HomeActivity"
+            android:name="com.ngolamquangtin.appdatvexemphim.Activity.LoginActivity"
             android:screenOrientation="locked" />
         <activity
-            android:name=".Activity.SplashActivity"
+            android:name="com.ngolamquangtin.appdatvexemphim.Activity.HomeActivity"
+            android:screenOrientation="locked" />
+        <activity
+            android:name="com.ngolamquangtin.appdatvexemphim.Activity.SplashActivity"
             android:screenOrientation="locked">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
