@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -32,6 +33,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import vn.momo.momo_partner.AppMoMoLib;
 
@@ -41,7 +44,6 @@ public class PaymentActivity extends AppCompatActivity {
     EditText edttenkhachhang, edtsodienthoai;
     Button btnthanhtoan;
     ImageView imgback;
-
     private String amount = "45000";
     private String fee = "0";
     int environment = 0;//developer default
@@ -49,6 +51,7 @@ public class PaymentActivity extends AppCompatActivity {
     private String merchantCode = "MOMO34SR20201026";
     private String merchantNameLabel = "Cinema Plust +";
     private String description = "Thanh toán mua ve online";
+
 
     SharedPreferences sharedPreferences;
 
@@ -67,6 +70,17 @@ public class PaymentActivity extends AppCompatActivity {
         btnthanhtoan = findViewById(R.id.btnthanhtoan);
         edttenkhachhang = findViewById(R.id.edttenkhachhang);
         imgback = findViewById(R.id.imgback);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                AlertDialog.Builder builder = new AlertDialog.Builder(PaymentActivity.this)
+                        .setTitle("Thông báo")
+                        .setMessage("Vé của bạn đã bị hủy!");
+                builder.show();
+                Intent i = new Intent(PaymentActivity.this, HomeActivity.class);
+                startActivity(i);
+            }
+        }, 5000);
     }
 
     private void addEvents() {
@@ -102,7 +116,7 @@ public class PaymentActivity extends AppCompatActivity {
                         , tickerBook.getIdphim()
                         , tickerBook.getIdkhachhang()
                         , tickerBook.getIdrap()
-                        ,"Đã đặt",tickerBook.getIdphong());
+                        , "Đã đặt", tickerBook.getIdphong());
                 RequestQueue requestQueue = Volley.newRequestQueue(PaymentActivity.this);
                 StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
                     @Override
@@ -122,6 +136,9 @@ public class PaymentActivity extends AppCompatActivity {
                     }
                 });
                 requestQueue.add(stringRequest);
+            } else {
+                AlertDialog.Builder builder = new AlertDialog.Builder(PaymentActivity.this).setTitle("Thông báo !").setMessage("Thông tin đặt vé không hợp lệ");
+                builder.show();
             }
 
         }

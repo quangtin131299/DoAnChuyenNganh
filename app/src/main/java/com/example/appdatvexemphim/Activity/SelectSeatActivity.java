@@ -48,6 +48,8 @@ public class SelectSeatActivity extends AppCompatActivity {
     TickerBook tickerBook;
     Button btnthanhtoan;
     Room room;
+    ImageView imgtryvet ;
+    int countclick = 1;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -202,14 +204,14 @@ public class SelectSeatActivity extends AppCompatActivity {
 
             }
         });
-        stringRequest.setRetryPolicy(new DefaultRetryPolicy(2000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(0, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 
         requestQueue.add(stringRequest);
 
     }
 
     private void addControls() {
-
+        imgtryvet = new ImageView(SelectSeatActivity.this);
         txttime = findViewById(R.id.txttime);
         txtsophong = findViewById(R.id.txtsophong);
         txttenphim = findViewById(R.id.txttenphim);
@@ -239,8 +241,18 @@ public class SelectSeatActivity extends AppCompatActivity {
                         public void onClick(View v) {
                             ImageView imageView1 = (ImageView) v;
                             if (imageView1.getDrawable().getConstantState() == getResources().getDrawable(R.drawable.seattrong).getConstantState()) {
-                                imageView1.setImageResource(R.drawable.seatchon);
-                                tickerBook.setIdghe(Integer.parseInt((String) imageView1.getTag()));
+                                if (countclick == 1) {
+                                    imageView1.setImageResource(R.drawable.seatchon);
+                                    tickerBook.setIdghe(Integer.parseInt((String) imageView1.getTag()));
+                                    imgtryvet = imageView1;
+                                    countclick = 2;
+                                }else{
+                                    imgtryvet.setImageResource(R.drawable.seattrong);
+                                    tickerBook.setIdghe(Integer.parseInt((String) imageView1.getTag()));
+                                    imageView1.setImageResource(R.drawable.seatchon);
+                                    imgtryvet = imageView1;
+                                }
+
                             } else if (imageView1.getDrawable().getConstantState() == getResources().getDrawable(R.drawable.seatdadat).getConstantState()) {
                                 Toast.makeText(SelectSeatActivity.this, "Ghế đã đặt rồi", Toast.LENGTH_SHORT).show();
                             } else {

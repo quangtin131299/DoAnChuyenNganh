@@ -1,5 +1,6 @@
 package com.example.appdatvexemphim.Fragment;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -141,7 +142,10 @@ public class FragmentLoginInfo extends Fragment {
                             Intent i = new Intent(getActivity(), HomeActivity.class);
                             startActivity(i);
                         } else {
-                            Log.d("/////", "Thất bại");
+                            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                            builder.setMessage("Tên đăng nhập hoặc tài khoản không chính xác !");
+                            builder.setTitle("Thông báo !");
+                            builder.show();
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();

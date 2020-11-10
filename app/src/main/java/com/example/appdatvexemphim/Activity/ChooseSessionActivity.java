@@ -63,7 +63,6 @@ public class ChooseSessionActivity extends AppCompatActivity implements TimeAdap
     SharedPreferences sharedPreferences;
 
 
-
     XuatChieu xctemp;
 
     @Override
@@ -152,7 +151,12 @@ public class ChooseSessionActivity extends AppCompatActivity implements TimeAdap
                     intent.putExtra("TEN_PHIM", i1.getStringExtra("TEN_PHIM"));
                     intent.putExtra("TICKERBOOK", tickerBook);
                     intent.putExtra("TEN_RAP", cinema.getTenrap());
-                    startActivity(intent);
+//                    if (tickerBook.getIdsuat() != 0 && tickerBook.getNgaydat().equals("") == false) {
+                        startActivity(intent);
+//                    }else{
+//                        Toast.makeText(ChooseSessionActivity.this, "Bạn phải chọn đẩy ba phần", Toast.LENGTH_SHORT).show();
+//                    }
+
 
                 }
 
@@ -257,7 +261,7 @@ public class ChooseSessionActivity extends AppCompatActivity implements TimeAdap
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.e("erro///", error.getMessage());
+
             }
         });
         stringRequest.setRetryPolicy(new DefaultRetryPolicy(2000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
@@ -268,7 +272,7 @@ public class ChooseSessionActivity extends AppCompatActivity implements TimeAdap
     @Override
     public void onClicked(int position, View view) {
         xctemp = xuatChieus.get(position);
-        Toast.makeText(ChooseSessionActivity.this, xctemp.getThoigian(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(ChooseSessionActivity.this, "Bạn đã chọn suất " + xctemp.getThoigian(), Toast.LENGTH_LONG).show();
         tickerBook.setIdsuat(xctemp.getId());
 
     }

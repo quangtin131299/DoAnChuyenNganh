@@ -25,6 +25,15 @@ public class TickerBook implements Serializable {
     }
 
     public TickerBook() {
+        this.idtickerbook = 0;
+        this.idsuat = 0;
+        this.idghe = 0;
+        this.idphim = 0;
+        this.idkhachhang = 0;
+        this.idrap = 0;
+        this.idhoadon = 0;
+        this.trangthai = "";
+        this.ngaydat = "";
     }
 
     public int getIdhoadon() {
