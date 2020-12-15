@@ -40,7 +40,7 @@ public class FragmentTicker extends Fragment {
     ListView lvticker;
     TickerAdapter tickerAdapter;
     SharedPreferences sharedPreferences;
-    ArrayList<Ticker> tickers;
+     ArrayList<Ticker> tickers;
 
     @Nullable
     @Override
@@ -60,10 +60,10 @@ public class FragmentTicker extends Fragment {
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                if(response!=null){
+                if (response != null) {
                     try {
                         JSONArray jsonArray = new JSONArray(response);
-                        for(int i = 0; i < jsonArray.length(); i++){
+                        for (int i = 0; i < jsonArray.length(); i++) {
                             Ticker ticker = new Ticker();
                             ticker.setId(jsonArray.getJSONObject(i).getInt("ID"));
                             ticker.setDiachirap(jsonArray.getJSONObject(i).getString("DiaChi"));
@@ -81,7 +81,7 @@ public class FragmentTicker extends Fragment {
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                }else{
+                } else {
                     Log.e("error_cc", response);
                 }
 
@@ -124,5 +124,13 @@ public class FragmentTicker extends Fragment {
         tickers = new ArrayList<>();
         tickerAdapter = new TickerAdapter(getActivity(), tickers);
         lvticker.setAdapter(tickerAdapter);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        tickers.clear();
+        tickerAdapter.notifyDataSetChanged();
+        loadDSVe();
     }
 }

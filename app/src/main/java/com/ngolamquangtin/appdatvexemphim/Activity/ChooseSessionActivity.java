@@ -45,7 +45,6 @@ import java.util.Date;
 
 public class ChooseSessionActivity extends AppCompatActivity implements TimeAdapter.onClickListenerRecyclerView {
 
-
     ArrayList<Cinema> cinemas = new ArrayList<>();
     ArrayList<XuatChieu> xuatChieus = new ArrayList<>();
     RapAdapter rapAdapter;
@@ -68,8 +67,6 @@ public class ChooseSessionActivity extends AppCompatActivity implements TimeAdap
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_session);
-
-
         addControls();
         loadCinema();
 

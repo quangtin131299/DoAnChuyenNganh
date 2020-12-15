@@ -83,6 +83,7 @@ public class FragmentCommingSoon extends Fragment {
         movies = new ArrayList<>();
         listMovieAdapter = new ListMovieCommingSoonAdapter(getActivity(), movies);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2);
+
         rvMovieCommingSoon.setHasFixedSize(true);
         rvMovieCommingSoon.setLayoutManager(gridLayoutManager);
         rvMovieCommingSoon.setAdapter(listMovieAdapter);
