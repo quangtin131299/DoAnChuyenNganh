@@ -148,6 +148,7 @@ public class ChooseSessionActivity extends AppCompatActivity implements TimeAdap
                     intent.putExtra("TICKERBOOK", tickerBook);
                     intent.putExtra("TEN_RAP", cinema.getTenrap());
                     if (tickerBook.getIdsuat() != 0 && tickerBook.getNgaydat().equals("") == false) {
+                        finish();
                         startActivity(intent);
                     }else{
                         Toast.makeText(ChooseSessionActivity.this, "Bạn phải chọn đẩy ba phần", Toast.LENGTH_SHORT).show();

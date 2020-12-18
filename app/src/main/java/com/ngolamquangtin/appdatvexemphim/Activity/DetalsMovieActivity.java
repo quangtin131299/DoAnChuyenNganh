@@ -148,6 +148,7 @@ public class DetalsMovieActivity extends AppCompatActivity {
                     Intent i = new Intent(DetalsMovieActivity.this, ChooseSessionActivity.class);
                     i.putExtra("ID_MOVIE", i1.getIntExtra("ID_MOVIE", 0));
                     i.putExtra("TEN_PHIM", txttenphim.getText());
+                    finish();
                     startActivity(i);
                 } else {
                     AlertDialog.Builder builder = new AlertDialog.Builder(DetalsMovieActivity.this).setMessage("Bạn chưa đăng nhập!");

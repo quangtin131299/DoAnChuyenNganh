@@ -42,6 +42,8 @@ import vn.momo.momo_partner.AppMoMoLib;
 
 public class PaymentActivity extends AppCompatActivity {
 
+    Runnable runnable;
+    Handler handler;
     int mave = 0;
     int idghe = 0;
     int idphong = 0;
@@ -55,10 +57,10 @@ public class PaymentActivity extends AppCompatActivity {
     private String amount = "45000";
     private String fee = "0";
     int environment = 0;//developer default
-    private String merchantName = "Cinema Plust +";
-    private String merchantCode = "MOMO34SR20201026";
-    private String merchantNameLabel = "Cinema Plust +";
-    private String description = "Thanh toán mua ve online";
+    String merchantName = "Cinema Plust +";
+    String merchantCode = "MOMO34SR20201026";
+    String merchantNameLabel = "Cinema Plust +";
+    String description = "Thanh toán mua ve online";
     SharedPreferences sharedPreferences;
 
     @Override
@@ -73,13 +75,13 @@ public class PaymentActivity extends AppCompatActivity {
 
     }
 
-    public void updateTrangThaiVe(){
+    public void updateTrangThaiVe() {
         RequestQueue requestQueue = Volley.newRequestQueue(PaymentActivity.this);
-        String url = String.format(Util.LINK_UPDATESTATUSVE, idphong, idghe, ngaydat,idsuat,mave,idhoadon);
+        String url = String.format(Util.LINK_UPDATESTATUSVE, idphong, idghe, ngaydat, idsuat, mave, idhoadon);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                if(response!=null){
+                if (response != null) {
                     Toast.makeText(PaymentActivity.this, "Vé của bạn đã bị hủy cmnr !", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -94,10 +96,7 @@ public class PaymentActivity extends AppCompatActivity {
     }
 
     private void addControls() {
-        btnthanhtoan = findViewById(R.id.btnthanhtoan);
-        edttenkhachhang = findViewById(R.id.edttenkhachhang);
-        imgback = findViewById(R.id.imgback);
-        new Handler().postDelayed(new Runnable() {
+        runnable = new Runnable() {
             @Override
             public void run() {
                 updateTrangThaiVe();
@@ -114,7 +113,12 @@ public class PaymentActivity extends AppCompatActivity {
                 Intent i = new Intent(PaymentActivity.this, HomeActivity.class);
                 startActivity(i);
             }
-        }, 30000);
+        };
+        handler = new Handler();
+        btnthanhtoan = findViewById(R.id.btnthanhtoan);
+        edttenkhachhang = findViewById(R.id.edttenkhachhang);
+        imgback = findViewById(R.id.imgback);
+        handler.postDelayed(runnable, 30000);
     }
 
     private void addEvents() {
@@ -163,8 +167,8 @@ public class PaymentActivity extends AppCompatActivity {
                                 JSONObject jsonObject = new JSONObject(response);
                                 mave = jsonObject.getInt("idve");
                                 idhoadon = jsonObject.getInt("idhd");
-                                Log.d("//////", String.valueOf(mave)) ;
-                                Log.d("//////", String.valueOf(idhoadon)) ;
+//                                Log.d("//////", String.valueOf(mave));
+//                                Log.d("//////", String.valueOf(idhoadon));
 
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -199,6 +203,7 @@ public class PaymentActivity extends AppCompatActivity {
                     Intent i = new Intent(PaymentActivity.this, HomeActivity.class);
                     startActivity(i);
                     Toast.makeText(PaymentActivity.this, "Thanh toán thành công", Toast.LENGTH_SHORT).show();
+                    handler.removeCallbacks(runnable);
                     String token = data.getStringExtra("data"); //Token response
                     String phoneNumber = data.getStringExtra("phonenumber");
                     String env = data.getStringExtra("env");
