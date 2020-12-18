@@ -64,10 +64,10 @@ public class FragmentNearYou extends Fragment {
         rvMovie = view.findViewById(R.id.rvMovieNearYou);
         listMovieAdapter = new ListMovieAdapter(getActivity(), movies);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity().getApplicationContext(), 2);
-        rvMovie.setHasFixedSize(false);
         rvMovie.setLayoutManager(gridLayoutManager);
         rvMovie.setAdapter(listMovieAdapter);
         refeshmovienearyou = view.findViewById(R.id.refeshmovienearyou);
+
 
     }
 

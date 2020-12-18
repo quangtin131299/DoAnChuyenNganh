@@ -2,7 +2,9 @@ package com.ngolamquangtin.appdatvexemphim.Activity;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -35,6 +37,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 public class SelectSeatActivity extends AppCompatActivity {
     ArrayList<LinearLayout> arrlinear = new ArrayList<>();
@@ -57,12 +60,24 @@ public class SelectSeatActivity extends AppCompatActivity {
         addEvents();
         loadData();
         loadDataPhong();
+        reupdateSeat();
 
 
     }
 
+    private void reupdateSeat() {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                loadData();
+                new Handler().postDelayed(this, 7000);
+            }
+        }, 7000);
+    }
+
     private void loadDataPhong() {
         Intent i = getIntent();
+        txttenphim.setText(i.getStringExtra("TEN_PHIM"));
         if (i.hasExtra("ID_MOVIE") && i.hasExtra("NGAYDATHIENTAI") && i.hasExtra("SUATCHIEU") && i.hasExtra("ID_CINEMA") && i.hasExtra("TEN_PHIM")) {
             tickerBook = (TickerBook) i.getSerializableExtra("TICKERBOOK");
             String url = String.format(Util.LINK_LOADPHONG, i.getStringExtra("SUATCHIEU"), i.getIntExtra("ID_MOVIE", 0), i.getIntExtra("ID_CINEMA", 0), i.getStringExtra("NGAYDATHIENTAI"));
@@ -94,7 +109,7 @@ public class SelectSeatActivity extends AppCompatActivity {
             stringRequest.setRetryPolicy(new DefaultRetryPolicy(5000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
             requestQueue.add(stringRequest);
         }
-        txttenphim.setText(i.getStringExtra("TEN_PHIM"));
+
 
     }
 
@@ -109,7 +124,6 @@ public class SelectSeatActivity extends AppCompatActivity {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-
     }
 
     private void addEvents() {
@@ -142,6 +156,7 @@ public class SelectSeatActivity extends AppCompatActivity {
 
             }
         });
+
     }
 
     private void updateUI() {
@@ -154,7 +169,11 @@ public class SelectSeatActivity extends AppCompatActivity {
                         ImageView tempimage = (ImageView) linearLayout.getChildAt(k);
                         if (tempimage.getTag() != null) {
                             if (tempseat.getId() == Integer.parseInt(String.valueOf(tempimage.getTag()))) {
-                                tempimage.setImageResource(R.drawable.seatdadat);
+                                if(tempseat.getTrangthai().equals("Đã đặt")){
+                                    tempimage.setImageResource(R.drawable.seatdadat);
+                                }else{
+                                    tempimage.setImageResource(R.drawable.seattrong);
+                                }
                             }
                         }
                     }
@@ -171,7 +190,6 @@ public class SelectSeatActivity extends AppCompatActivity {
         String url = "";
         if (intent.hasExtra("NGAYDATHIENTAI") && intent.hasExtra("ID_MOVIE") && intent.hasExtra("ID_CINEMA") && intent.hasExtra("SUATCHIEU")) {
             url = String.format(Util.LINK_LOADGHE, intent.getIntExtra("ID_CINEMA", 0), intent.getIntExtra("ID_MOVIE", 0), intent.getStringExtra("SUATCHIEU"), intent.getStringExtra("NGAYDATHIENTAI"));
-
         }
 
         RequestQueue requestQueue = Volley.newRequestQueue(SelectSeatActivity.this);

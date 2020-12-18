@@ -67,6 +67,7 @@ public class PasswordChangeActivity extends AppCompatActivity {
 
             }
         });
+
     }
 
     private void processPassChange(final String newpass, final String idkhachhang) {
@@ -115,4 +116,6 @@ public class PasswordChangeActivity extends AppCompatActivity {
         edtnewpass = findViewById(R.id.edtnewpass);
         edtxacnhan = findViewById(R.id.txtmatkhau);
     }
+
+
 }

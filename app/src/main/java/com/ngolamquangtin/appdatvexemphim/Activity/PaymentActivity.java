@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,14 +15,18 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.ngolamquangtin.appdatvexemphim.DTO.Ticker;
 import com.ngolamquangtin.appdatvexemphim.DTO.TickerBook;
+import com.ngolamquangtin.appdatvexemphim.Fragment.FragmentTicker;
 import com.ngolamquangtin.appdatvexemphim.R;
 import com.ngolamquangtin.appdatvexemphim.Util.Util;
 
@@ -37,6 +42,14 @@ import vn.momo.momo_partner.AppMoMoLib;
 
 public class PaymentActivity extends AppCompatActivity {
 
+    Runnable runnable;
+    Handler handler;
+    int mave = 0;
+    int idghe = 0;
+    int idphong = 0;
+    String ngaydat;
+    int idsuat = 0;
+    int idhoadon = 0;
     TickerBook tickerBook;
     EditText edttenkhachhang, edtsodienthoai;
     Button btnthanhtoan;
@@ -44,12 +57,10 @@ public class PaymentActivity extends AppCompatActivity {
     private String amount = "45000";
     private String fee = "0";
     int environment = 0;//developer default
-    private String merchantName = "Cinema Plust +";
-    private String merchantCode = "MOMO34SR20201026";
-    private String merchantNameLabel = "Cinema Plust +";
-    private String description = "Thanh toán mua ve online";
-
-
+    String merchantName = "Cinema Plust +";
+    String merchantCode = "MOMO34SR20201026";
+    String merchantNameLabel = "Cinema Plust +";
+    String description = "Thanh toán mua ve online";
     SharedPreferences sharedPreferences;
 
     @Override
@@ -59,25 +70,55 @@ public class PaymentActivity extends AppCompatActivity {
         AppMoMoLib.getInstance().setEnvironment(AppMoMoLib.ENVIRONMENT.DEVELOPMENT);
         addControls();
         updateUI();
+        xulyDatVe();
         addEvents();
 
     }
 
+    public void updateTrangThaiVe() {
+        RequestQueue requestQueue = Volley.newRequestQueue(PaymentActivity.this);
+        String url = String.format(Util.LINK_UPDATESTATUSVE, idphong, idghe, ngaydat, idsuat, mave, idhoadon);
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                if (response != null) {
+                    Toast.makeText(PaymentActivity.this, "Vé của bạn đã bị hủy cmnr !", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(DefaultRetryPolicy.DEFAULT_TIMEOUT_MS, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        requestQueue.add(stringRequest);
+    }
+
     private void addControls() {
-        btnthanhtoan = findViewById(R.id.btnthanhtoan);
-        edttenkhachhang = findViewById(R.id.edttenkhachhang);
-        imgback = findViewById(R.id.imgback);
-        new Handler().postDelayed(new Runnable() {
+        runnable = new Runnable() {
             @Override
             public void run() {
-                AlertDialog.Builder builder = new AlertDialog.Builder(PaymentActivity.this)
-                        .setTitle("Thông báo")
-                        .setMessage("Vé của bạn đã bị hủy!");
-                builder.show();
+                updateTrangThaiVe();
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(PaymentActivity.this)
+                                .setTitle("Thông báo")
+                                .setMessage("Vé của bạn đã bị hủy!");
+                        builder.show();
+                    }
+                });
+
                 Intent i = new Intent(PaymentActivity.this, HomeActivity.class);
                 startActivity(i);
             }
-        }, 5000);
+        };
+        handler = new Handler();
+        btnthanhtoan = findViewById(R.id.btnthanhtoan);
+        edttenkhachhang = findViewById(R.id.edttenkhachhang);
+        imgback = findViewById(R.id.imgback);
+        handler.postDelayed(runnable, 30000);
     }
 
     private void addEvents() {
@@ -85,6 +126,7 @@ public class PaymentActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 requestPayment();
+
             }
         });
         imgback.setOnClickListener(new View.OnClickListener() {
@@ -105,26 +147,33 @@ public class PaymentActivity extends AppCompatActivity {
         if (intent.hasExtra("TICKERBOOK")) {
             tickerBook = (TickerBook) intent.getSerializableExtra("TICKERBOOK");
             if (tickerBook.getIdghe() != 0 && tickerBook.getIdkhachhang() != 0 && tickerBook.getIdphong() != 0 && tickerBook.getNgaydat() != "") {
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-                Calendar calendar = Calendar.getInstance();
-                String url = String.format(Util.LINK_DATVE, simpleDateFormat.format(calendar.getTime())
+                String url = String.format(Util.LINK_DATVE, tickerBook.getNgaydat()
                         , tickerBook.getIdsuat()
                         , tickerBook.getIdghe()
                         , tickerBook.getIdphim()
                         , tickerBook.getIdkhachhang()
                         , tickerBook.getIdrap()
                         , "Đã đặt", tickerBook.getIdphong());
+                idghe = tickerBook.getIdghe();
+                idphong = tickerBook.getIdphong();
+                idsuat = tickerBook.getIdsuat();
+                ngaydat = tickerBook.getNgaydat();
                 RequestQueue requestQueue = Volley.newRequestQueue(PaymentActivity.this);
                 StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         if (response != null) {
-                            AlertDialog.Builder builder = new AlertDialog.Builder(PaymentActivity.this).setMessage(response);
-                            builder.show();
-                            Intent i = new Intent(PaymentActivity.this, HomeActivity.class);
-                            startActivity(i);
-                        }
+                            try {
+                                JSONObject jsonObject = new JSONObject(response);
+                                mave = jsonObject.getInt("idve");
+                                idhoadon = jsonObject.getInt("idhd");
+//                                Log.d("//////", String.valueOf(mave));
+//                                Log.d("//////", String.valueOf(idhoadon));
 
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
                     }
                 }, new Response.ErrorListener() {
                     @Override
@@ -132,17 +181,16 @@ public class PaymentActivity extends AppCompatActivity {
 
                     }
                 });
+                stringRequest.setRetryPolicy(new DefaultRetryPolicy(DefaultRetryPolicy.DEFAULT_TIMEOUT_MS, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
                 requestQueue.add(stringRequest);
+
             } else {
                 AlertDialog.Builder builder = new AlertDialog.Builder(PaymentActivity.this).setTitle("Thông báo !").setMessage("Thông tin đặt vé không hợp lệ");
                 builder.show();
             }
 
         }
-
-
     }
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -151,8 +199,11 @@ public class PaymentActivity extends AppCompatActivity {
             if (data != null) {
                 if (data.getIntExtra("status", -1) == 0) {
                     //TOKEN IS AVAILABLE
-                    xulyDatVe();
+//                    xulyDatVe();
+                    Intent i = new Intent(PaymentActivity.this, HomeActivity.class);
+                    startActivity(i);
                     Toast.makeText(PaymentActivity.this, "Thanh toán thành công", Toast.LENGTH_SHORT).show();
+                    handler.removeCallbacks(runnable);
                     String token = data.getStringExtra("data"); //Token response
                     String phoneNumber = data.getStringExtra("phonenumber");
                     String env = data.getStringExtra("env");
