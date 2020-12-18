@@ -21,7 +21,7 @@
             android:textStyle="bold"
             android:textSize="80sp"
             android:textColor="#E7E7E7"
-            android:text="Sign in"
+            android:text="Đăng nhập"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 

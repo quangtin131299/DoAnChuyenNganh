@@ -71,7 +71,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Scan QR code at the entrance of the cinema hall"
+                    android:text="Quét mã QR ở lối vào sảnh rạp chiếu phim"
                     android:textColor="#E7E7E7"
                     android:textSize="20sp" />
 

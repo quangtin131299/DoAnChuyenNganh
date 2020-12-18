@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="8.5"
                 android:gravity="center"
-                android:text="Select Seat"
+                android:text="CHỌN GHẾ"
                 android:textColor="#FFFFFF"
                 android:textSize="25sp"
                 android:textStyle="bold" />

@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_marginLeft="10dp"
-                android:text="Choose Cinema"
+                android:text="Chọn Rạp Chiếu Phim"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp" />
 
@@ -108,7 +108,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_marginLeft="10dp"
-                android:text="Choose Date"
+                android:text="Ngày Xem"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp" />
 
@@ -158,7 +158,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_marginLeft="10dp"
-                android:text="Choose Time"
+                android:text="Chọn Suất Chiếu"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp" />
 
@@ -185,7 +185,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/background_btnlogin"
-                android:text="Choose Session"
+                android:text="Tiếp Tục"
                 android:textColor="#FFFFFF"
                 android:textSize="17sp"
                 android:textStyle="bold" />

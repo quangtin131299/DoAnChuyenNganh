@@ -27,7 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="43dp"
                 android:background="@drawable/background_textviewaccountandpass"
-                android:hint="Enter your Email"
+                android:hint="Nhập Email của bạn"
                 android:paddingLeft="10dp"
                 android:textColor="#E7E7E7"
                 android:textColorHint="#707070" />
@@ -59,7 +59,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="43dp"
                 android:background="@drawable/background_textviewaccountandpass"
-                android:hint="Enter your Password"
+                android:hint="Nhập mật khẩu"
                 android:inputType="textPassword"
                 android:paddingLeft="10dp"
                 android:textColor="#E7E7E7"
@@ -87,7 +87,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/background_btnhuydatve"
-            android:text="Huy đăng nhập"
+            android:text="Hủy đăng nhập"
             android:textColor="#E7E7E7"
             android:textSize="20sp" />
 
@@ -140,12 +140,11 @@
                 android:id="@+id/txttaotk"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Create Account"
+                android:text="Tạo tài khoản"
                 android:textColor="#FF3365"
                 android:textSize="15sp" />
 
         </LinearLayout>
-
 
     </LinearLayout>
 

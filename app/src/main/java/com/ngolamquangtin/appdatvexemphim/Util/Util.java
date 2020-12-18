@@ -19,6 +19,7 @@ public class Util {
     public static final String LINK_LOADPHONG = "https://serverappdatve.herokuapp.com/loadphong?suatchieu=%s&idphim=%d&idrap=%d&ngayhientai=%s";
     public static final String LINK_UPDATEUSER = "https://serverappdatve.herokuapp.com/capnhatthongtinkhach";
     public static final String LINK_DATVE = "https://serverappdatve.herokuapp.com/datvephim?ngaydat=%s&idsuat=%d&idghe=%d&idphim=%d&idkhachhang=%d&idrap=%d&&status=%s&idphong=%d";
+    public static  final  String LINK_UPDATEPASSWORDUSER = "http://192.168.0.123:3000/updatepassuser";
 
     public static String getMd5(String input) {
         try {
