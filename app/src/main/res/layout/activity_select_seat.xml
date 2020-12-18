@@ -158,7 +158,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical|end"
-                            android:text="BOOKED"
+                            android:text="Đã đặt"
                             android:textColor="#6D6D80"
                             android:textSize="10sp" />
 
@@ -180,7 +180,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical|end"
-                            android:text="AVAILABLE"
+                            android:text="Còn trống"
                             android:textColor="#6D6D80"
                             android:textSize="10sp" />
 
@@ -201,7 +201,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical|end"
-                            android:text="SELETED"
+                            android:text="Đã chọn"
                             android:textColor="#6D6D80"
                             android:textSize="10sp" />
                     </LinearLayout>

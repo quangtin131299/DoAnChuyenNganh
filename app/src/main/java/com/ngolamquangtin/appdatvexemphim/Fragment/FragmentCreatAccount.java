@@ -3,6 +3,8 @@ package com.ngolamquangtin.appdatvexemphim.Fragment;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +24,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.textfield.TextInputLayout;
 import com.ngolamquangtin.appdatvexemphim.Activity.LoginActivity;
 import com.ngolamquangtin.appdatvexemphim.R;
 import com.ngolamquangtin.appdatvexemphim.Util.Util;
@@ -33,8 +36,9 @@ import java.util.Map;
 
 public class FragmentCreatAccount extends Fragment {
 
+    TextInputLayout edlayoutname,edlayouttk,edlayoutpass,edlayoutconfirmpass, edlayoutemail, edlayoutbirthday, edlayoutphone;
     EditText txtname, txtaccount, txtpass, txtconfimpass, txtemail, txtdate, txtphone;
-    Button btnCreate;
+    Button btnCreate, btnHuy;
 
     @Nullable
     @Override
@@ -47,6 +51,161 @@ public class FragmentCreatAccount extends Fragment {
     }
 
     private void addEvents() {
+        btnHuy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().finish();
+            }
+        });
+        txtname.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(s.toString().equals("")){
+                    edlayoutname.setError("Khong được bỏ trống");
+                }else{
+                    edlayoutname.setError(null);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        txtaccount.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(s.toString().equals("")){
+                    edlayouttk.setError("Khong được để trống");
+                }else{
+                    edlayouttk.setError("");
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        txtpass.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(s.toString().equals("")){
+                    edlayoutpass.setError("Khong được bỏ trống !");
+                }else{
+                    edlayoutpass.setError(null);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        txtconfimpass.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(s.toString().equals("")){
+                    edlayoutconfirmpass.setError("Không được để trống");
+                }else{
+                    edlayoutconfirmpass.setError(null);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        txtemail.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(s.toString().equals("")){
+                    edlayoutemail.setError("Không được để trống !");
+                }else{
+                    edlayoutemail.setError(null);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        txtdate.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(s.toString().equals("")){
+                    edlayoutbirthday.setError("Không được để trông !");
+                }else{
+                    edlayoutbirthday.setError(null);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        txtphone.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(s.toString().equals("")){
+                    edlayoutphone.setError("Không được để trống !");
+                }else{
+                    edlayoutphone.setError(null);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+
+
+
+
+
         txtdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
@@ -131,6 +290,14 @@ public class FragmentCreatAccount extends Fragment {
     }
 
     private void addControls(View view) {
+        btnHuy = view.findViewById(R.id.btnhuy);
+        edlayoutphone  = view.findViewById(R.id.edlayoutphone);
+        edlayoutbirthday = view.findViewById(R.id.edlayoutbirthday);
+        edlayoutemail = view.findViewById(R.id.edlayoutemail);
+        edlayoutconfirmpass = view.findViewById(R.id.edlayoutconfirmpass);
+        edlayoutpass = view.findViewById(R.id.edlayoutpass);
+        edlayouttk = view.findViewById(R.id.edlayouttk);
+        edlayoutname = view.findViewById(R.id.edlayoutname);
         txtname = view.findViewById(R.id.txtname);
         txtaccount = view.findViewById(R.id.txtaccount);
         txtpass = view.findViewById(R.id.txtpass);

@@ -178,6 +178,7 @@
             app:hintEnabled="false">
 
             <EditText
+                android:focusable="false"
                 android:id="@+id/txtdate"
                 android:layout_width="match_parent"
                 android:layout_height="43dp"

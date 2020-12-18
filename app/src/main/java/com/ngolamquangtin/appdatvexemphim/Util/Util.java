@@ -18,13 +18,9 @@ public class Util {
     public static final String LINK_LOADGHE = "https://serverappdatve.herokuapp.com/loadghe?rapphim=%d&idphim=%d&suatchieu=%s&ngaydathientai=%s";
     public static final String LINK_LOADPHONG = "https://serverappdatve.herokuapp.com/loadphong?suatchieu=%s&idphim=%d&idrap=%d&ngayhientai=%s";
     public static final String LINK_UPDATEUSER = "https://serverappdatve.herokuapp.com/capnhatthongtinkhach";
-<<<<<<< HEAD
-    public static final String LINK_DATVE = "https://serverappdatve.herokuapp.com/datvephim?ngaydat=%s&idsuat=%d&idghe=%d&idphim=%d&idkhachhang=%d&idrap=%d&&status=%s&idphong=%d";
-=======
     public static final String LINK_DATVE = "https://serverappdatve.herokuapp.com/datvephim?ngaydat=%s&idsuat=%d&idghe=%d&idphim=%d&idkhachhang=%d&idrap=%d&status=%s&idphong=%d";
     public static final String LINK_UPDATESTATUSVE = "https://serverappdatve.herokuapp.com/capnhattrangthaidatve?idphong=%d&idghe=%d&ngaydat=%s&idsuat=%d&idve=%d&idhoadon=%d";
->>>>>>> 6a9b0bba5bd7a5f5641eebea5ea67688c0a31a9e
-    public static  final  String LINK_UPDATEPASSWORDUSER = "http://192.168.0.123:3000/updatepassuser";
+    public static  final  String LINK_UPDATEPASSWORDUSER = "https://serverappdatve.herokuapp.com/updatepassuser";
 
     public static String getMd5(String input) {
         try {

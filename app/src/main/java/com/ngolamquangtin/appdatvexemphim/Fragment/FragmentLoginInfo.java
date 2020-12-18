@@ -125,8 +125,9 @@ public class FragmentLoginInfo extends Fragment {
             @Override
             public void onResponse(String response) {
                 if (response != null) {
+                    Log.d("/////", response);
                     try {
-                        if (response.equals("fail") == false) {
+                        if (response.equals("[]") == false) {
                             JSONArray jsonArray = new JSONArray(response);
                             JSONObject jsonObject = jsonArray.getJSONObject(0);
                             Editor editor = sharedPreferences.edit();
