@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -37,9 +39,13 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 public class SelectSeatActivity extends AppCompatActivity {
+
+
     ArrayList<LinearLayout> arrlinear = new ArrayList<>();
 
     ArrayList<Seat> seats = new ArrayList<>();
@@ -48,7 +54,7 @@ public class SelectSeatActivity extends AppCompatActivity {
     TickerBook tickerBook;
     Button btnthanhtoan;
     Room room;
-    ImageView imgtryvet ;
+    ImageView imgtryvet;
     int countclick = 1;
 
     @Override
@@ -70,9 +76,9 @@ public class SelectSeatActivity extends AppCompatActivity {
             @Override
             public void run() {
                 loadData();
-                new Handler().postDelayed(this, 7000);
+                new Handler().postDelayed(this, 2000);
             }
-        }, 7000);
+        }, 2000);
     }
 
     private void loadDataPhong() {
@@ -169,11 +175,13 @@ public class SelectSeatActivity extends AppCompatActivity {
                         ImageView tempimage = (ImageView) linearLayout.getChildAt(k);
                         if (tempimage.getTag() != null) {
                             if (tempseat.getId() == Integer.parseInt(String.valueOf(tempimage.getTag()))) {
-                                if(tempseat.getTrangthai().equals("Đã đặt")){
-                                    tempimage.setImageResource(R.drawable.seatdadat);
-                                }else{
-                                    tempimage.setImageResource(R.drawable.seattrong);
-                                }
+//                                if (tempimage.getDrawable().getConstantState() != getDrawable(R.drawable.seatchon).getConstantState()) {
+                                    if (tempseat.getTrangthai().equals("Đã đặt")) {
+                                        tempimage.setImageResource(R.drawable.seatdadat);
+                                    } else {
+                                        tempimage.setImageResource(R.drawable.seattrong);
+                                    }
+//                                }
                             }
                         }
                     }
@@ -184,16 +192,16 @@ public class SelectSeatActivity extends AppCompatActivity {
     }
 
     private void loadData() {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        Date date = Calendar.getInstance().getTime();
-        Intent intent = getIntent();
-        String url = "";
-        if (intent.hasExtra("NGAYDATHIENTAI") && intent.hasExtra("ID_MOVIE") && intent.hasExtra("ID_CINEMA") && intent.hasExtra("SUATCHIEU")) {
-            url = String.format(Util.LINK_LOADGHE, intent.getIntExtra("ID_CINEMA", 0), intent.getIntExtra("ID_MOVIE", 0), intent.getStringExtra("SUATCHIEU"), intent.getStringExtra("NGAYDATHIENTAI"));
-        }
+//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+//        Date date = Calendar.getInstance().getTime();
+        final Intent intent = getIntent();
+//        String url = "";
+//        if (intent.hasExtra("NGAYDATHIENTAI") && intent.hasExtra("ID_MOVIE") && intent.hasExtra("ID_CINEMA") && intent.hasExtra("SUATCHIEU")) {
+//            url = String.format(Util.LINK_LOADGHE, intent.getIntExtra("ID_CINEMA", 0), intent.getIntExtra("ID_MOVIE", 0), intent.getStringExtra("SUATCHIEU"), intent.getStringExtra("NGAYDATHIENTAI"));
+//        }
 
         RequestQueue requestQueue = Volley.newRequestQueue(SelectSeatActivity.this);
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.PUT, Util.LINK_LOADGHE, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 if (response != null) {
@@ -218,7 +226,17 @@ public class SelectSeatActivity extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
 
             }
-        });
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> map = new HashMap<>();
+                map.put("rapphim", String.valueOf(intent.getIntExtra("ID_CINEMA", 0)));
+                map.put("idphim", String.valueOf(intent.getIntExtra("ID_MOVIE", 0)));
+                map.put("suatchieu", intent.getStringExtra("SUATCHIEU"));
+                map.put("ngaydathientai", intent.getStringExtra("NGAYDATHIENTAI"));
+                return map;
+            }
+        };
         stringRequest.setRetryPolicy(new DefaultRetryPolicy(0, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 
         requestQueue.add(stringRequest);
@@ -261,7 +279,7 @@ public class SelectSeatActivity extends AppCompatActivity {
                                     tickerBook.setIdghe(Integer.parseInt((String) imageView1.getTag()));
                                     imgtryvet = imageView1;
                                     countclick = 2;
-                                }else{
+                                } else {
                                     imgtryvet.setImageResource(R.drawable.seattrong);
                                     tickerBook.setIdghe(Integer.parseInt((String) imageView1.getTag()));
                                     imageView1.setImageResource(R.drawable.seatchon);

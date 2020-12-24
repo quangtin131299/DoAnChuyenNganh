@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,8 +30,10 @@ import com.ngolamquangtin.appdatvexemphim.Activity.LoginActivity;
 import com.ngolamquangtin.appdatvexemphim.R;
 import com.ngolamquangtin.appdatvexemphim.Util.Util;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -236,16 +239,23 @@ public class FragmentCreatAccount extends Fragment {
                 String date = txtdate.getText().toString().trim();
                 String phone = txtphone.getText().toString().trim();
 
+                SimpleDateFormat output = new SimpleDateFormat("yyyy-MM-dd");
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                try {
+                    Date date1 = simpleDateFormat.parse(date);
+                    date = output.format(date1);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
 
-                if (name.equals("") && account.equals("") && pass.equals("") == false && confimpass.equals("") && email.equals("") && date.equals("") && phone.equals("")) {
+
+                if (name.equals("") && account.equals("") && pass.equals("")&& confimpass.equals("") && email.equals("") && date.equals("") && phone.equals("")) {
                     Toast.makeText(getActivity(), "Không được để trống thông tin", Toast.LENGTH_LONG).show();
-                } else {
                     return;
                 }
 
                 if (confimpass.equals(pass) == false) {
                     Toast.makeText(getActivity(), "Xác nhận pass ko với pass không giống nhau", Toast.LENGTH_LONG).show();
-                } else {
                     return;
                 }
 
@@ -263,6 +273,7 @@ public class FragmentCreatAccount extends Fragment {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+                Log.d("/////", response);
                 Toast.makeText(getActivity(), response, Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(getActivity(), LoginActivity.class);
                 startActivity(i);
